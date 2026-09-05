@@ -124,7 +124,7 @@ async function sendEmailOtp({ toEmail, userName, code }) {
     throw new Error('Platform admin SMTP configuration is incomplete.');
   }
 
-  const transporter = mailer.createTransport({
+  const transporter = mailer.createTransport('operational', {
     host,
     port,
     secure: encryption === 'SSL/TLS',

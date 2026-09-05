@@ -291,7 +291,7 @@ async function sendAcknowledgment({ account, config, orgId, toEmail, variant, mi
     .replace(/\{\{missing_fields\}\}/g, (missingFieldLabels || []).join(', ') || 'the requested details');
 
   const mailer = require('../utils/mailer');
-  const transporter = mailer.createTransport({
+  const transporter = mailer.createTransport('operational', {
     host: outbound.smtp_host,
     port: Number(outbound.smtp_port),
     secure: Number(outbound.smtp_port) === 465,

@@ -45,7 +45,7 @@ router.post('/site-config/test-smtp', authenticate, requireRole('admin', 'platfo
     const mailer = require('../../utils/mailer');
     const { host, port, secure, user, pass } = req.body;
     if (!host || !port) return res.status(400).json({ error: 'host and port required' });
-    const transporter = mailer.createTransport({
+    const transporter = mailer.createTransport('operational', {
       host, port: parseInt(port), secure: !!secure,
       auth: user ? { user, pass: pass || '' } : undefined,
       connectionTimeout: 5000, greetingTimeout: 5000

@@ -763,7 +763,7 @@ router.post('/email-accounts/:id/test-smtp', authenticate, requireRole('admin', 
     const secure = account.smtp_encryption === 'SSL/TLS';
     const requireTLS = account.smtp_encryption === 'STARTTLS';
 
-    const transporter = mailer.createTransport({
+    const transporter = mailer.createTransport('operational', {
       host: account.smtp_host,
       port: account.smtp_port,
       secure,
@@ -818,7 +818,7 @@ router.post('/email-accounts/:id/send-test', authenticate, requireRole('admin', 
     const secure = account.smtp_encryption === 'SSL/TLS';
     const requireTLS = account.smtp_encryption === 'STARTTLS';
 
-    const transporter = mailer.createTransport({
+    const transporter = mailer.createTransport('operational', {
       host: account.smtp_host,
       port: account.smtp_port,
       secure,

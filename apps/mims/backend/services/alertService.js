@@ -61,7 +61,7 @@ async function getTransporter() {
   if (!host || !port || !username || !password || !fromEmail) return null;
 
   return {
-    transporter: mailer.createTransport({
+    transporter: mailer.createTransport('alert', {
       host,
       port,
       secure: encryption === 'SSL/TLS',

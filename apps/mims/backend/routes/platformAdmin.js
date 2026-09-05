@@ -476,7 +476,7 @@ router.post('/config/test-email', authenticate, requireRole('platform_admin'), a
       return res.status(400).json({ error: 'SMTP host, port, username, password, and from email are required.' });
     }
 
-    const transporter = mailer.createTransport({
+    const transporter = mailer.createTransport('operational', {
       host,
       port,
       secure: encryption === 'SSL/TLS',

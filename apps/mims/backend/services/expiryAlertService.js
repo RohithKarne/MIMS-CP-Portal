@@ -21,11 +21,11 @@ async function getAdminEmails(orgId) {
 }
 
 async function sendExpiryEmail(recipients, subject, body) {
-  if (!recipients.length) return;
+  if (!recipients.length) return false;
   const config = await getSmtpConfig();
-  if (!config.smtp_host || !config.smtp_username || !config.smtp_password) return;
+  if (!config.smtp_host || !config.smtp_username || !config.smtp_password) return false;
   try {
-    const transporter = mailer.createTransport({
+    const transporter = mailer.createTransport('alert', {
       host: config.smtp_host,
       port: parseInt(config.smtp_port || '587', 10),
       secure: (config.smtp_encryption || '') === 'SSL/TLS',
@@ -38,8 +38,10 @@ async function sendExpiryEmail(recipients, subject, body) {
       subject,
       text: body,
     });
+    return true;
   } catch (err) {
     console.error('[expiryAlertService] Email send failed:', err.message);
+    return false;
   }
 }
 
@@ -98,13 +100,13 @@ async function runExpiryAlerts() {
       const faqLines = items.faqs.map(f => `  - [FAQ] ${f.question.slice(0, 80)} — expires ${f.expiry_date}`).join('\n');
       const body = `MIMS Content Expiry Alert\n\nThe following content items are expiring within ${DAYS_AHEAD} days:\n\n${docLines}\n${faqLines}\n\nPlease review and renew or archive these items in your Admin Console > Content Management.\n\nThis is an automated alert from MIMS Platform.`;
 
-      await sendExpiryEmail(
+      const emailed = await sendExpiryEmail(
         recipients,
         `[MIMS] Content Expiry Alert — ${total} item(s) expiring soon`,
         body
       );
 
-      console.log(`[expiryAlertService] Org ${orgId}: alerted ${total} expiring items, emailed ${recipients.length} admins`);
+      console.log(`[expiryAlertService] Org ${orgId}: alerted ${total} expiring items, ${emailed ? `emailed ${recipients.length} admins` : 'no email sent'}`);
     }
   } catch (err) {
     console.error('[expiryAlertService] runExpiryAlerts failed:', err.message);

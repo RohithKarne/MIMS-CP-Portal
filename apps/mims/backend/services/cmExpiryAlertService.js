@@ -111,7 +111,7 @@ async function runCmExpiryAlerts() {
       if (!emailAccount) continue;
 
       // Send alerts
-      const transporter = mailer.createTransport({
+      const transporter = mailer.createTransport('alert', {
         host: emailAccount.smtp_host,
         port: emailAccount.smtp_port || 587,
         secure: emailAccount.smtp_port === 465,

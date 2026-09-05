@@ -125,7 +125,7 @@ async function processJob(job) {
   // Build transporter
   const secure     = smtp_encryption === 'SSL/TLS';
   const requireTLS = smtp_encryption === 'STARTTLS';
-  const transporter = mailer.createTransport({
+  const transporter = mailer.createTransport('operational', {
     host: smtp_host,
     port: smtp_port,
     secure,

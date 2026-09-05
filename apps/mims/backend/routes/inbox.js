@@ -1069,7 +1069,7 @@ async function sendViaSmtp(account, { from, to, subject, text }) {
   const mailer = require('../utils/mailer');
   const secure = account.smtp_encryption === 'SSL/TLS';
   const requireTLS = account.smtp_encryption === 'STARTTLS';
-  const transporter = mailer.createTransport({
+  const transporter = mailer.createTransport('operational', {
     host: account.smtp_host,
     port: account.smtp_port,
     secure,

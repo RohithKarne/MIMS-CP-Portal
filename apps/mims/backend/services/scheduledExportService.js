@@ -186,7 +186,7 @@ async function deliverByEmail(config, csvContent) {
   const fromEmail = process.env.SMTP_FROM_EMAIL || systemConfig.smtp_from_email || username;
   const fromName = moduleConfig.email_from_name || systemConfig.smtp_from_name || 'MIMS Reports';
 
-  const transporter = mailer.createTransport({
+  const transporter = mailer.createTransport('operational', {
     host,
     port,
     secure: encryption === 'SSL/TLS',
