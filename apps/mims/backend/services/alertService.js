@@ -1,6 +1,6 @@
 'use strict';
 
-const nodemailer = require('nodemailer');
+const mailer = require('../utils/mailer');
 const pool = require('../database/db');
 const { logger } = require('./logger');
 const { PLATFORM_ADMIN_MODULE_KEYS } = require('../utils/adminScope');
@@ -61,7 +61,7 @@ async function getTransporter() {
   if (!host || !port || !username || !password || !fromEmail) return null;
 
   return {
-    transporter: nodemailer.createTransport({
+    transporter: mailer.createTransport({
       host,
       port,
       secure: encryption === 'SSL/TLS',

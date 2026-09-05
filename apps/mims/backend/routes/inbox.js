@@ -1066,10 +1066,10 @@ async function getOutboundAccount(recipientEmail, req, inquiryOrgId = null) {
 }
 
 async function sendViaSmtp(account, { from, to, subject, text }) {
-  const nodemailer = require('nodemailer');
+  const mailer = require('../utils/mailer');
   const secure = account.smtp_encryption === 'SSL/TLS';
   const requireTLS = account.smtp_encryption === 'STARTTLS';
-  const transporter = nodemailer.createTransport({
+  const transporter = mailer.createTransport({
     host: account.smtp_host,
     port: account.smtp_port,
     secure,

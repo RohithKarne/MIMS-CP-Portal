@@ -1,7 +1,7 @@
 'use strict';
 
 const pool = require('../database/db');
-const nodemailer = require('nodemailer');
+const mailer = require('../utils/mailer');
 const { createNotification } = require('./notificationCenterService');
 const { recordReportRun } = require('./reportOpsService');
 const {
@@ -186,7 +186,7 @@ async function deliverByEmail(config, csvContent) {
   const fromEmail = process.env.SMTP_FROM_EMAIL || systemConfig.smtp_from_email || username;
   const fromName = moduleConfig.email_from_name || systemConfig.smtp_from_name || 'MIMS Reports';
 
-  const transporter = nodemailer.createTransport({
+  const transporter = mailer.createTransport({
     host,
     port,
     secure: encryption === 'SSL/TLS',

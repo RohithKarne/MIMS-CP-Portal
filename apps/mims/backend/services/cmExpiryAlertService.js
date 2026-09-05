@@ -5,7 +5,7 @@
  * Sends email alerts to document subscribers + org defaults when expiry threshold is hit.
  */
 const pool = require('../database/db');
-const nodemailer = require('nodemailer');
+const mailer = require('../utils/mailer');
 
 async function runCmExpiryAlerts() {
   try {
@@ -111,7 +111,7 @@ async function runCmExpiryAlerts() {
       if (!emailAccount) continue;
 
       // Send alerts
-      const transporter = nodemailer.createTransport({
+      const transporter = mailer.createTransport({
         host: emailAccount.smtp_host,
         port: emailAccount.smtp_port || 587,
         secure: emailAccount.smtp_port === 465,

@@ -13,7 +13,7 @@
  */
 
 const pool        = require('../database/db');
-const nodemailer  = require('nodemailer');
+const mailer  = require('../utils/mailer');
 const crypto      = require('crypto');
 const { logger }  = require('./logger');
 const { logService } = require('./serviceLogger');
@@ -125,7 +125,7 @@ async function processJob(job) {
   // Build transporter
   const secure     = smtp_encryption === 'SSL/TLS';
   const requireTLS = smtp_encryption === 'STARTTLS';
-  const transporter = nodemailer.createTransport({
+  const transporter = mailer.createTransport({
     host: smtp_host,
     port: smtp_port,
     secure,

@@ -1,7 +1,7 @@
 'use strict';
 
 const pool = require('../database/db');
-const nodemailer = require('nodemailer');
+const mailer = require('../utils/mailer');
 
 async function getSmtpConfig() {
   try {
@@ -25,7 +25,7 @@ async function sendExpiryEmail(recipients, subject, body) {
   const config = await getSmtpConfig();
   if (!config.smtp_host || !config.smtp_username || !config.smtp_password) return;
   try {
-    const transporter = nodemailer.createTransport({
+    const transporter = mailer.createTransport({
       host: config.smtp_host,
       port: parseInt(config.smtp_port || '587', 10),
       secure: (config.smtp_encryption || '') === 'SSL/TLS',
