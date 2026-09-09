@@ -29,7 +29,7 @@ function deriveKey(pathname, search) {
   // then split. The first meaningful segment is the module name.
   const cleaned = pathname
     .replace(/^\//, '')
-    .replace(/^(mims|cp-portal|vault|qms|safety|ai-agent)\//, '')
+    .replace(/^(mims|cp-portal)\//, '')
   const parts = cleaned.split('/').filter(Boolean)
   const base = parts[0] || ''
   const sub  = parts[1] || ''

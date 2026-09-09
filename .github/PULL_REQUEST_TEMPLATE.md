@@ -8,10 +8,7 @@ Closes #<!-- issue number -->
 
 ## Product Scope
 - [ ] MIMS
-- [ ] QMS
-- [ ] Vault
 - [ ] CP Portal
-- [ ] AI-Agent
 
 ## Change Type
 - [ ] Backend

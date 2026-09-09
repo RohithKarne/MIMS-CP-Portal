@@ -24,7 +24,7 @@ No app is production ready until all gates below are green:
 
 ### CI/CD
 
-- [ ] Frontend build runs in CI for `vault`, `qms`, `cp-portal`, `mims`, `ai-agent`
+- [ ] Frontend build runs in CI for `mims`, `cp-portal`
 - [ ] Backend syntax/startup gate runs in CI for all active apps
 - [ ] Security scan runs per app
 - [ ] New hosting target is approved before deploy workflows are re-enabled
@@ -73,11 +73,8 @@ No app is production ready until all gates below are green:
 
 | App | Current state | Must be true before prod sign-off |
 | --- | --- | --- |
-| Vault | Frontend build passing. Backend syntax passing. | Restrict backend CORS, keep request tracing, verify S3/SMTP credentials via readiness, add deploy smoke, complete backup/restore proof. |
-| QMS | Frontend build passing. Backend syntax passing. | Keep RBAC smoke in release path, confirm PostgreSQL readiness probe, verify RLS/auth flows after deploy, externalize production origins and JWT secrets. |
 | CP Portal | Frontend build passing. Backend syntax passing. | Keep admin/public route separation, restrict production origins, verify scheduler behavior on restart, add postdeploy smoke for admin login and portal load. |
 | MIMS | Frontend build passing. Backend syntax passing. Existing logging/security strongest in repo. | Restrict production CORS, keep regression and health reporting green, prove backup/restore, and gate release on regression smoke. |
-| AI Agent | Frontend build passing. Backend syntax passing. | Add API rate limiting, explicit CORS, graceful shutdown, provider-key readiness checks, and secret rotation controls before prod use. |
 
 ## Evidence Required Per Release
 

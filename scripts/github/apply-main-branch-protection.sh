@@ -67,5 +67,5 @@ ${REQUIRED_CHECKS_JSON}
 Note:
 - if checks were left as [], add exact GitHub check names after the first full CI run
 - rerun this script with:
-  REQUIRED_CHECKS_JSON='["MIMS CI / ci","QMS CI / ci","Vault CI / ci","CP Portal CI / ci","AI-Agent CI / ci"]' ./scripts/github/apply-main-branch-protection.sh
+  REQUIRED_CHECKS_JSON='["MIMS CI / ci","CP Portal CI / ci"]' ./scripts/github/apply-main-branch-protection.sh
 EOF

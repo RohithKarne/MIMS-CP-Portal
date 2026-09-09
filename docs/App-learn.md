@@ -217,7 +217,7 @@ While learning Part 6, Rohith asked whether the JWT expiry could be dropped and 
 - 11-person team (updated 2026-07-10). Reporting to Rohith Karne (CEO & Co-Founder): Bala Kaviti (COO), Varun Karne (CTO & Co-Founder), Saad Rahman (CPO), Vasu Ranabothu (Chief Compliance Officer), Mark Antony (Chief AI Officer), Sowmya (Chief Medical Officer). Reporting to Varun: Bhavya Bobba (Engineering Manager), Kiranmai Avuluri (Director of QA), Anirudh (Solution Architect). Reporting to Kiranmai: Krishnapriya (Lead Test Engineer).
 - **Bhavya is Engineering Manager only** — QA now belongs to Kiranmai Avuluri.
 - **Katrina** (Senior Director, Client Excellence) is an external client, not an employee. Never in internal approval gates.
-- Portfolio is **5 products**: CP Portal, MIMS, Pharaxis Vault, QMS, AI-Agent. Safety, IEG, and Publications were eliminated 2026-07-10. Build priority: CP Portal + MIMS first, Vault + QMS next.
+- Portfolio is **2 products**: MIMS and CP Portal. Vault, QMS, AI-Agent and the Test Console were deleted 2026-09-09 (SOP §43–§45); Safety, IEG and Publications were eliminated 2026-07-10.
 - Live communication, targeted communication (only the addressed person responds), and the gate workflow all apply per `docs/TEAM_OPERATING_SOP.md` (§39 for live communication).
 - Dev tooling: use Claude Code Edit/Write directly for all code. Git push is DISABLED. No feature is "Done" until browser-verified.
 </content>

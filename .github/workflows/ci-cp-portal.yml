@@ -37,6 +37,6 @@ jobs:
       # database/migrations and runs the backend tests against it.
       #
       # CP Portal keeps its dependencies in backend/, not the app root, so the
-      # test script installs them itself — same as QMS.
+      # test script installs them itself.
       test_database: pharaxis_cp_portal_test
       test_command: npm test
