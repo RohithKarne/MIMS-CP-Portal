@@ -5,20 +5,25 @@
 //
 // utils/mailer.js is the one gate every outbound email passes through. Each caller
 // declares what kind of mail it is. Alerts are blocked; operational mail sends.
-
-const mockCreateTransport = jest.fn(() => ({ sendMail: jest.fn(), verify: jest.fn() }));
-// Not a virtual mock: nodemailer is a real dependency of this app. Declaring it
-// virtual let Jest register the mock under the bare specifier while utils/mailer
-// resolved the real module, so the real transport was built and these
-// assertions saw no calls. It passed on a warm node_modules and failed on CI's
-// fresh install — the divergence that made it look environment-specific.
-jest.mock('nodemailer', () => ({ createTransport: (...args) => mockCreateTransport(...args) }));
+//
+// These tests do NOT mock nodemailer. An earlier version did, and the mock bound
+// on a warm node_modules but not on CI's fresh install, so five assertions saw a
+// real transport and reported zero calls. Asserting the returned object instead
+// removes the whole class of problem and tests the thing that actually matters:
+// what the caller is handed. Building a transport opens no connection —
+// nodemailer connects on send — so this is safe with a fake host.
 
 const mailer = require('../utils/mailer');
 const { execSync } = require('child_process');
 
 const SMTP = { host: 'smtp.example.com', port: 587 };
 const BACKEND = `${__dirname}/..`;
+
+// A real nodemailer transport carries its own inner transporter and a long list
+// of Mail methods. The blocked stub is a bare object with three functions.
+function isRealTransport(t) {
+  return Boolean(t && t.transporter) && typeof t.sendMail === 'function';
+}
 
 function grepBackend(pattern) {
   return execSync(
@@ -28,14 +33,12 @@ function grepBackend(pattern) {
 }
 
 beforeEach(() => {
-  mockCreateTransport.mockClear();
   delete process.env.MIMS_ALERT_EMAIL;
 });
 
 describe('alert mail is off', () => {
   test('no real SMTP transport is built for an alert', () => {
-    mailer.createTransport('alert', SMTP);
-    expect(mockCreateTransport).not.toHaveBeenCalled();
+    expect(isRealTransport(mailer.createTransport('alert', SMTP))).toBe(false);
   });
 
   test('sending an alert fails loudly instead of reporting success', async () => {
@@ -47,27 +50,24 @@ describe('alert mail is off', () => {
 
   test('mail with no declared kind is treated as an alert and blocked', async () => {
     const transport = mailer.createTransport();
-    expect(mockCreateTransport).not.toHaveBeenCalled();
+    expect(isRealTransport(transport)).toBe(false);
     await expect(transport.sendMail({ to: 'x@y.com' })).rejects.toThrow(/Alert email is disabled/);
   });
 
   test.each(['on', 'true', '1'])('alerts resume on MIMS_ALERT_EMAIL=%s', (value) => {
     process.env.MIMS_ALERT_EMAIL = value;
-    mailer.createTransport('alert', SMTP);
-    expect(mockCreateTransport).toHaveBeenCalledWith(SMTP);
+    expect(isRealTransport(mailer.createTransport('alert', SMTP))).toBe(true);
   });
 });
 
 describe('operational mail keeps working', () => {
   test('builds a real transport for login codes and case replies', () => {
-    mailer.createTransport('operational', SMTP);
-    expect(mockCreateTransport).toHaveBeenCalledWith(SMTP);
+    expect(isRealTransport(mailer.createTransport('operational', SMTP))).toBe(true);
   });
 
   test('is unaffected by the alert switch', () => {
     process.env.MIMS_ALERT_EMAIL = 'off';
-    mailer.createTransport('operational', SMTP);
-    expect(mockCreateTransport).toHaveBeenCalledWith(SMTP);
+    expect(isRealTransport(mailer.createTransport('operational', SMTP))).toBe(true);
   });
 });
 
