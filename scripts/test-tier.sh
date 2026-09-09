@@ -24,7 +24,7 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 TIER="${1:-tier1}"
 APP="${2:-all}"
 
-ALL_APPS=(cp-portal mims vault qms ai-agent)
+ALL_APPS=(cp-portal mims)
 
 # Tests must never run against a dev database — they seed, mutate and delete.
 # Each app is pinned to its own *_test schema here.
@@ -32,9 +32,7 @@ test_db_for() {
   case "$1" in
     mims)      echo "pharaxis_mims_test" ;;
     cp-portal) echo "pharaxis_cp_portal_test" ;;
-    vault)     echo "pharaxis_vault_test" ;;
-    ai-agent)  echo "pharaxis_ai_agent_test" ;;
-    *)         echo "" ;;                 # qms is Postgres — uses DATABASE_URL
+    *)         echo "" ;;
   esac
 }
 FAILED=()

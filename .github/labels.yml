@@ -1,18 +1,9 @@
 - name: app:mims
   color: '0E8A16'
   description: Changes affecting the MIMS product
-- name: app:qms
-  color: '1D76DB'
-  description: Changes affecting the QMS product
-- name: app:vault
-  color: '5319E7'
-  description: Changes affecting the Vault product
 - name: app:cp-portal
   color: 'FBCA04'
   description: Changes affecting the CP Portal product
-- name: app:ai-agent
-  color: 'D93F0B'
-  description: Changes affecting the AI-Agent product
 - name: area:github
   color: 'BFD4F2'
   description: Changes affecting GitHub workflows or repository automation

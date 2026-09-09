@@ -21,7 +21,7 @@ sudo apt-get update
 sudo apt-get install -y nginx certbot python3-certbot-nginx
 
 sudo mkdir -p /var/www/certbot
-sudo mkdir -p /var/www/pharaxis/{vault,qms,cp-portal,mims,ai-agent}
+sudo mkdir -p /var/www/pharaxis/{cp-portal,mims}
 
 sed "s/__DOMAIN__/$DOMAIN/g" "$TEMPLATE_PATH" | sudo tee "$TARGET_PATH" >/dev/null
 sudo ln -sfn "$TARGET_PATH" /etc/nginx/sites-enabled/pharaxis-one.conf

@@ -1,22 +1,10 @@
 const publicBaseUrl = (process.env.PUBLIC_BASE_URL || 'http://127.0.0.1').replace(/\/$/, '');
-const changedApps = String(process.env.CHANGED_APPS || 'vault,qms,cp-portal,mims,ai-agent')
+const changedApps = String(process.env.CHANGED_APPS || 'cp-portal,mims')
   .split(',')
   .map((value) => value.trim())
   .filter(Boolean);
 
 const APP_CHECKS = {
-  vault: {
-    frontendPath: '/vault/',
-    healthPath: '/vault/api/health',
-    protectedPath: '/vault/api/users',
-    protectedStatuses: [401, 403],
-  },
-  qms: {
-    frontendPath: '/qms/',
-    healthPath: '/qms/api/health',
-    protectedPath: '/qms/api/protected/me',
-    protectedStatuses: [401, 403],
-  },
   'cp-portal': {
     frontendPath: '/cp-portal/',
     healthPath: '/cp-portal/api/health',
@@ -27,12 +15,6 @@ const APP_CHECKS = {
     frontendPath: '/mims/',
     healthPath: '/mims/api/health',
     protectedPath: '/mims/api/users',
-    protectedStatuses: [401, 403],
-  },
-  'ai-agent': {
-    frontendPath: '/ai-agent/',
-    healthPath: '/ai-agent/api/v1/agent/health',
-    protectedPath: '/ai-agent/api/v1/agent/admin/keys',
     protectedStatuses: [401, 403],
   },
 };

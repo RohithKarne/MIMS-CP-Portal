@@ -22,6 +22,7 @@
 > Revision update: 2026-08-10 (**Seven routines cut to four, and five Jira spaces closed.** Mandated by Rohith Karne. **Product Audit merged into §30** as its second story — five client-side teams a run, rotating, instead of twenty-seven. **Client Support Simulation merged into §32** as its second story — one end user, rotating through the six personas. **CEO Meeting and Product Development retired outright.** **MIMS-PM added** as the twin of CP-PM (§46). What remains: **Product Intelligence · Client Intelligence · CP-PM · MIMS-PM**, writing to **`CPPM` · `MIPM` · `DCI`**. The `CP`, `MIMS`, `PD`, `ASUP`, `PAUD` and `CEO` spaces are deleted; every open feature, enhancement, audit finding and support item was imported first — 27 backlog items, 27 audit questions and 4 support accounts. **`CPPM` and `MIPM` are the live product spaces, not a sandbox** — Rohith: *"dont think my learning as training. It will real production feature only."* That retires the `TRN-` prefix, the re-issued controlled ticket and the never-built-from rule in §46. §30, §32, §33, §34, §35, §36 and §46 all carry a dated block at the top stating the current position; the original text is kept below each.)
 > Revision update: 2026-08-10 (Section 47 added — Plain Language & Brevity Standard. Mandated by Rohith Karne, and **it applies to everything**: this chat, every routine, every document, internal product development, and every reply between team members. Two rules. **Plain English in the body** — no file paths, line numbers, table or function names, endpoints or code fragments where a person reads; explain what a person does and what the system does. **References are kept but collected in one block at the foot**, never scattered — `evidence or nothing` is relocated, not relaxed. And **one or two lines**, with depth given on request rather than by default. §28 is narrowed to replies to Rohith and §47 wins where they differ; §39.6 and `CLAUDE.md` hard constraint 4 amended as to placement. Commit messages and pull requests are the exception and must still name what changed.)
 > Revision update: 2026-08-08 (Section 46 added — CP-PM Product Management Training Routine. Mandated by Rohith Karne. A seventh cloud agent sets **one product management exercise per run** on real CP Portal code and withholds the answer; the analyst is Rohith, training toward Product Owner and Product Manager. **CP Portal only**, files to Jira project `CPPM`. Manual, like the other six. **Scenario sources are our own code *and* public web research** — regulation, standards, industry practice, adjacent product documentation — added the same day on Rohith's instruction, because code alone yields too narrow a feature pool; the two-source rule keeps our own code as the anchor for the as-is. Governance lives here; the operational prompt lives in `docs/CP_PM.md`. **Two decisions inside the same day reversed each other and both are recorded:** training tickets were first ruled never to become real work, then Rohith decided that **what the analyst specifies gets built and shipped** — against Vasu's and Sarvanan's advice. The promotion bridge in §46 is what makes that safe: the `CPPM` story is a draft, a re-issued `CP` ticket is the controlled specification, and no `TRN-` identifier ever crosses. **Consequence stated: CP Portal reopens to feature development** — §41 updated the same day, on Rohith's confirmation, from *STABLE, hotfix support only* to **ACTIVE FEATURE DEVELOPMENT**, so §41 and §46 agree.)
+> Revision update: 2026-09-09 (**Two products, not five.** Mandated by Rohith Karne: *"lets delete qms, vault and test console, ai-agent. I want to concentrate only on mims, cp-portal."* The **Pharaxis Vault, QMS and AI Agent** applications and the **Test Console** were deleted from the repository, together with their CI, deploy and release workflows, runbooks, website pages, nginx routes, PM2 entries, Dependabot configs, labels and local databases. **§43, §44 and §45 are retired in place and their numbers are not reused** — the same pattern as §33–§36 — because §41–§47 are cited across this file, in `CLAUDE.md` and inside cloud routine prompts that cannot be edited from the repository. **Document management moves outside:** MIMS integrates with **Veeva Vault and other external content management systems** through its per-organisation integration config, which was always written against Veeva's API and never called the in-house Vault app — that integration is unaffected. **Regression moves into the apps:** §29 step 4 and §38 step 18 no longer promote into a separate Test Console; each app carries its own suite, run through the app and its CI, on Rohith's instruction *"I will test using the original app itself."* The full text of the deleted sections remains in git history.)
 > Revision update: 2026-08-03 (Section 34 added — Client Support Simulation. Mandated by Rohith. A fourth cloud agent files **simulated end-user support tickets** into Jira project `ASUP` from six named personas across MIMS and CP Portal, to show what a real support inbox would look like and which questions we could not answer. Manual, like the other three. Deduplication in Sections 30 and 32 extended to cover `ASUP`.)
 > Revision update: 2026-08-13 (Section 48 added — CSV/CSA Interviews. Mandated by Rohith Karne. **The first routine whose subject is not a Pharaxis product.** It rehearses him for interviews as a validation professional moving companies: one epic and five stories per run, each story a real interview conversation between two named interviewers and him, followed by coaching. Manual, like the others. Files to Jira project `CSV`. Governance lives here; the operational prompt lives in `docs/CSV_CSA_INTERVIEWS.md`. It reads no Pharaxis code, names no Pharaxis product, and nothing it produces enters the delivery flow in §38.)
 
@@ -55,7 +56,6 @@ This SOP applies to:
 
 Product focus (priority order set by Rohith 2026-07-10):
 1. **CP Portal** and **MIMS** — current build focus
-2. **Pharaxis Vault** and **QMS** — next
 
 **Positioning: Medical Information first.** Decided by Rohith on 2026-08-04, answering the question four leaders raised in the 3 Aug CEO round (CEO-10, CEO-11, CEO-13, CEO-14). The wedge is the medical information workflow; pharmacovigilance stays in the product and stays honestly described. Consequences the team named before the decision: Saad freezes growth of the configuration surface, Vasu's October E2B(R3) date stops being a launch blocker, and Sowmya owns the MI workflow definition end to end.
 
@@ -169,8 +169,8 @@ Katrina (Senior Director, Client Excellence)
 
 ### Compliance, AI, and Medical
 - **Vasu Ranabothu (Chief Compliance Officer):** regulatory, quality, and risk posture across the portfolio — GxP, 21 CFR Part 11, HIPAA/GDPR, computer system validation, audit readiness. Named compliance owner for client security questionnaires and vendor assessments. Approves compliance-impacting releases.
-- **Mark Antony (Chief AI Officer):** AI strategy and its safe application across the portfolio — AI-assisted triage, adverse-event detection, knowledge retrieval, and the AI Agent app. Accountable for model governance, evaluation, and responsible-AI standards in a regulated context. Partners with the CPO on which AI capabilities become product.
-- **Sowmya (Chief Medical Officer):** clinical and medical-affairs authority across the portfolio. Validates that MIMS, Safety, and QMS reflect real pharmacovigilance and medical-information practice. Clinical credibility with pharma clients and regulators. Advises on adverse-event and safety workflows.
+- **Mark Antony (Chief AI Officer):** AI strategy and its safe application across the portfolio — AI-assisted triage, adverse-event detection and knowledge retrieval within MIMS and CP Portal. Accountable for model governance, evaluation, and responsible-AI standards in a regulated context. Partners with the CPO on which AI capabilities become product.
+- **Sowmya (Chief Medical Officer):** clinical and medical-affairs authority across the portfolio. Validates that MIMS and CP Portal reflect real pharmacovigilance and medical-information practice. Clinical credibility with pharma clients and regulators. Advises on adverse-event and safety workflows.
 
 ### Engineering
 - **Bhavya Bobba (Engineering Manager):** technical analysis, root cause analysis, system design, task scoping, implementation delivery, engineering verification including browser verification. Writes detailed task scopes before Gate 1. Reports what changed, in what files, and why.
@@ -219,7 +219,7 @@ Katrina (Senior Director, Client Excellence)
 ## 6. Team Operating Principles
 
 These rules apply to every team:
-- CP Portal and MIMS are the active build priority; Pharaxis Vault and QMS come next (set by Rohith 2026-07-10)
+- CP Portal and MIMS are the only products (set by Rohith 2026-09-09; Vault, QMS and AI Agent retired — see §43–§45)
 - no silent decisions
 - all communication stays visible in chat
 - no work begins on unclear scope
@@ -1369,7 +1369,7 @@ Aditi enforces this on every reply routed through her. Bala flags a bloated repl
 ## 29. New Feature Test Automation & Regression Promotion (Mandatory)
 
 > Established: 2026-07-28. Mandated by Rohith Karne.
-> Applies to: every application — MIMS, CP Portal, Vault, QMS, AI Agent.
+> Applies to: every application — MIMS, CP Portal.
 
 ### Principle
 
@@ -1405,14 +1405,12 @@ Krishnapriya writes the scripts while Bhavya builds. Tests must:
 Kiranmai confirms in chat: tests written, tests passing, what they cover, what they do not. Gate 2 is blocked without it.
 
 **4. Promotion to the regression corpus — after sign-off**
-Once the feature passes QA and Rohith signs off, the suite is promoted in the Test Console (`apps/test-console`), tagged with the release that added it. Promotion is blocked while the run has failures — a corpus filled with tests that were red on entry is a corpus nobody trusts.
+Once the feature passes QA and Rohith signs off, the suite joins the app's own regression corpus, tagged with the release that added it. Promotion is blocked while the run has failures — a corpus filled with tests that were red on entry is a corpus nobody trusts.
+
+> **Changed 2026-09-09 on Rohith's instruction:** *"I will test using the original app itself."* The separate Test Console application was deleted along with QMS, Vault and AI Agent. Regression now lives inside each app — MIMS runs its own suite, CP Portal runs its own — and is exercised through the app and its CI, not through a second tool. The rule that a signed-off feature's tests become permanent is unchanged; only the place they live has moved.
 
 **5. Permanent from then on**
 Nothing is removed from regression when a release ships. The corpus is cumulative — that is what makes a full regression meaningful at any point.
-
-### Current release view
-
-The Test Console's **Current release** screen shows the test scripts for the **most recent three features only** — a rolling window. When a fourth feature releases, the oldest drops off that screen. It is not lost: it was already promoted to the regression suite and continues to run there.
 
 ### What is not acceptable
 
@@ -1483,7 +1481,7 @@ A change that "works" in the database or the API but shows nothing (or the wrong
 > Everything below this block is the original 2026-07-29 text. Where the two differ, this block wins.
 
 > Established: 2026-07-29. Mandated by Rohith Karne.
-> Applies to: MIMS and CP Portal. Vault and QMS to be added on Rohith's instruction.
+> Applies to: MIMS and CP Portal — the two products.
 
 ### Principle
 
@@ -1604,7 +1602,7 @@ Rules I–X are adapted from field notes on LLM-assisted programming circulated 
 > Everything below this block is the original 2026-08-03 text. Where the two differ, this block wins.
 
 > Established: 2026-08-03. Mandated by Rohith Karne.
-> Applies to: MIMS and CP Portal. Vault and QMS to be added on Rohith's instruction.
+> Applies to: MIMS and CP Portal — the two products.
 > Companion to Section 30. Where the two differ, §30 governs the *product* routine and this section governs the *client* routine.
 
 ### Principle
@@ -1855,7 +1853,7 @@ Renaming them is available and cheap; it was not done on 2026-08-03 because the 
 > live routine.
 
 > Established: 2026-08-03. Mandated by Rohith Karne.
-> Applies to: MIMS and CP Portal. Vault and QMS excluded, as in §30 and §32.
+> Applies to: MIMS and CP Portal — the two products.
 > Fourth of the four cloud routines, alongside Sections 30, 32 and 33. All four are **manual**.
 
 ### Principle
@@ -1985,7 +1983,7 @@ If that count is ever lower than the number of issues in `ASUP`, an item has esc
 > live routine.
 
 > Established: 2026-08-03. Mandated by Rohith Karne.
-> Applies to: MIMS and CP Portal. Vault and QMS excluded, as in §30, §32 and §34.
+> Applies to: MIMS and CP Portal — the two products.
 > Fifth of the five cloud routines, alongside Sections 30, 32, 33 and 34. All five are **manual**.
 
 ### Principle
@@ -2116,7 +2114,7 @@ If that count is ever lower than the number of issues in `PAUD`, an item has esc
 > The detail below is kept for the record. Do not recreate the routine without Rohith asking.
 
 > Established: 2026-08-04. Mandated by Rohith Karne.
-> Applies to: MIMS and CP Portal. Vault, QMS and AI Agent excluded.
+> Applies to: MIMS and CP Portal — the two products.
 > Sixth of the six cloud routines. All six are **manual**.
 > Governance and operational detail are both held here — the routine is simple enough that a separate spec file would only create the drift §31 warns about. If it grows, it splits.
 
@@ -2353,7 +2351,7 @@ Six phases, twenty-three steps, one owner each.
 | 16 | **Product review readiness** | Section 18 — seven conditions, including Vasu where the change touches regulatory, validation, privacy or audit surface. |
 | **Ship** | | |
 | 17 | **Final sign-off** | Rohith. Section 22 Definition of Done is satisfied here, not before. |
-| 18 | **Regression promotion** | The suite joins the permanent corpus in `apps/test-console` (Section 29 step 4). **Blocked while the run has any failure** — a corpus with red in it is a corpus nobody trusts. |
+| 18 | **Regression promotion** | The suite joins the app's own permanent regression corpus (Section 29 step 4). **Blocked while the run has any failure** — a corpus with red in it is a corpus nobody trusts. |
 | 19 | Tag & changelog | `CHANGELOG.md` entry with its revalidation-impact flag. |
 | 20 | Deploy | Via the app's release workflow (38.10). |
 | **Watch** | | |
@@ -2421,7 +2419,7 @@ One DRI per step, per Section 37.3.
 | 15 | QA sign-off or block | **Kiranmai Avuluri** | Evidence mandatory |
 | 16 | Product review readiness | **Bala Kaviti** | Varun + Kiranmai confirm in chat; Vasu where regulated |
 | 17 | Final sign-off | **Rohith** | — |
-| 18 | Regression promotion | **Kiranmai Avuluri** | Krishnapriya promotes in the Test Console |
+| 18 | Regression promotion | **Kiranmai Avuluri** | Krishnapriya promotes into the app's suite |
 | 19 | Tag & changelog | **Bhavya Bobba** writes it | **Vasu confirms the revalidation flag** |
 | 20 | Deploy | **Varun Karne** | Bala tracks cadence |
 | 21 | Monitor | **Anirudh** (Solution Architect / Cloud) | Alerting routes to him first |
@@ -2490,10 +2488,10 @@ Recorded openly rather than left to be discovered:
 | **CI is not a required check** | A red pipeline does not block a merge. A human must read it. | Anirudh |
 | **`CODEOWNERS` cannot express Gate 2** | Section 9 requires *"Varun review complete"*, and `.github/CODEOWNERS` routes every path to `@RohithKarne`. **This was first recorded as a contradiction to fix; that was wrong.** `RohithKarne` is the only account with repository access — every other team member is a simulated persona with no GitHub identity, so no other name can appear in `CODEOWNERS` without being silently ignored. **Varun's review is an in-process step recorded in chat (step 9), not a GitHub mechanism.** `CODEOWNERS` is correct as written; the gap is that GitHub cannot enforce the review the SOP requires, and nothing but discipline closes it. | Varun |
 | **E2E tests never run in CI** | Playwright is installed in MIMS and CP Portal and is invoked by no workflow. Browser verification stays manual. | Kiranmai |
-| **No coverage floor** | Test counts: MIMS 30, CP Portal 5, Vault 3, QMS 1, AI Agent 1. Nothing stops that falling. | Kiranmai |
+| **No coverage floor** | Test counts: MIMS 30, CP Portal 5. Nothing stops that falling. | Kiranmai |
 | ~~**MIMS has no quality gate**~~ | **Closed 2026-08-07** (#533). It was worse than absent: the shared workflow guards the job with `if: quality_command != ''`, so it **skipped — and a skipped check reports as a pass.** `ci-mims.yml` now passes `npm run test:static`, which parses all 447 backend files and refuses to pass on an empty walk. | — |
 | **No deploy rollback** | Deploys to the CP Portal demo are automatic on merge (§38.10). Recovery from a bad deploy is a manual `gcloud run services update-traffic` to a prior revision — not scripted, not documented, not drilled. **Automatic deploys without a rollback path is a worse position than manual deploys were.** | Anirudh |
-| **Only CP Portal deploys** | MIMS, QMS, Vault and AI Agent still carry the `Remote Deploy Disabled` stub from when the AWS host was deleted on 2026-05-27. | Varun |
+| **Only CP Portal deploys** | MIMS still carries the `Remote Deploy Disabled` stub from when the AWS host was deleted on 2026-05-27. | Varun |
 | **Monitoring and incident response are not built** | No error tracking, no APM, no uptime check. We learn a product is down when someone opens it. **Owned since 2026-08-07 — Anirudh** (see §5), so this is now a build task with a name against it, not an orphan. | Anirudh |
 | **Releases have never been logged** | One git tag, `v1.0.0`. `CHANGELOG.md` contains only `## Unreleased`. Five release workflows have never run. | Bhavya |
 
@@ -2517,9 +2515,6 @@ request** (see the path-filter warning in 38.7):
 |---|---|
 | `mims` | `Frontend Build`, `Backend Syntax`, `Security Scan` |
 | `cp-portal` | `Frontend Build`, `Backend Syntax`, `Quality Gate`, `Security Scan` |
-| `qms` | `Frontend Build`, `Backend Syntax`, `Quality Gate`, `Security Scan` |
-| `vault` | `Frontend Build`, `Backend Syntax`, `Quality Gate`, `Security Scan` |
-| `ai-agent` | `Frontend Build`, `Backend Syntax`, `Quality Gate`, `Security Scan` |
 
 **MIMS has no `Quality Gate` because `ci-mims.yml` passes no `quality_command`.**
 That is the gap in 38.7, not a deliberate exemption.
@@ -2569,10 +2564,7 @@ Releases use app-specific tags:
 | Product | Tag form |
 |---|---|
 | `mims` | `mims-v…` |
-| `qms` | `qms-v…` |
-| `vault` | `vault-v…` |
 | `cp-portal` | `cp-portal-v…` |
-| `ai-agent` | `ai-agent-v…` |
 
 Every release gets a `CHANGELOG.md` entry carrying its **revalidation impact flag**
 — None, Partial or Full. **Engineering proposes the flag; Vasu Ranabothu (CCO)
@@ -4251,733 +4243,28 @@ The in-app **UAT & QA** admin features remain product features. Only the separat
 
 ---
 
-## 43. Pharaxis Vault — Application SOP (Mandatory)
-
-> Absorbed 2026-08-07 from `apps/vault/VAULT_MEMORY_SOP.md`, now deleted, on Rohith's
-> instruction to hold every SOP in one file. Content is unchanged; only
-> heading levels were demoted to nest under this section. The update
-> protocol stated below still applies to this section.
-
-> **Purpose:** Single source of truth for Pharaxis Vault. Intended for any developer, QA engineer, or team member who needs to onboard or resume work without requiring verbal explanation.
-> **Scope:** Pharaxis Vault only. Other apps documented separately in their own SOP files.
-> **Update Protocol:** This file is only updated when Rohith explicitly confirms. Rohith says "Bala, update the Vault Memory SOP — [what changed]" and Bala updates it. No one else modifies this file. Each update adds a version note below.
-
----
-
-#### Version History
-
-| Date | Updated By | What Changed |
-|------|-----------|--------------|
-| 2026-04-06 | Bala | Initial creation — product definition, Sprint 1 scope, terminology, architecture decisions locked |
-
----
-
-#### 1. What Is Pharaxis Vault
-
-**Pharaxis Vault — Regulated Content Management Platform**
-A Veeva Vault challenger built for life sciences and healthcare mid-size companies. Provides a centralised content hub that integrates with any downstream application via open API — eliminating document duplication across systems.
-
-**Core value proposition:**
-- Everything Veeva Vault does, at 50% of the cost
-- Open API integration to any system (not locked to one ecosystem)
-- Built for regulated industries: life sciences, pharma, healthcare
-- Centralized vault — single source of truth mapped to multiple downstream apps
-
-**Target customers:**
-- Anchor: Novartis (currently on Veeva Vault, wants 50% cost reduction)
-- Consulting firms: Freyr Solutions, Eversana, PrimeVigilance, TechSol Life Sciences
-- Startup partnership: SciMax
-
-**Relationship to other Pharaxis One apps:**
-Pharaxis Vault is a standalone product. Future integration planned with MIMS, QMS, and Safety via Content Channels (API integration layer). Vault is the content source of truth — other apps consume from it.
-
----
-
-#### 2. Full Tech Stack
-
-##### Backend
-| Component | Technology | Version / Detail |
-|-----------|-----------|-----------------|
-| Runtime | Node.js | v18+ |
-| Framework | Express | ^4.x |
-| Authentication | JSON Web Token (jsonwebtoken) | ^9.x |
-| Password hashing | bcrypt | ^6.x |
-| Database driver | mysql2 | ^3.x |
-| File upload | multer | ^2.x |
-| File storage | AWS S3 | Production |
-| Email sending | nodemailer | ^8.x |
-| Scheduled jobs | node-cron | ^4.x |
-| CORS | cors | ^2.x |
-| Dev server | nodemon | ^3.x |
-
-##### Frontend
-| Component | Technology | Version / Detail |
-|-----------|-----------|-----------------|
-| Framework | React | ^19.x |
-| Build tool | Vite | ^7.x |
-| Routing | react-router-dom | ^7.x |
-| PDF viewer | PDF.js | latest |
-
-##### Database
-| Component | Detail |
-|-----------|--------|
-| Engine | MySQL 8.0.45 (native install) |
-| Location | `/usr/local/mysql/` on Mac |
-| Port | 3306 |
-| Database name | `pharaxis_vault_dev` |
-| User | `devuser` / `devpass` |
-| Multi-tenancy | `org_id` on every table — no exceptions |
-
-##### File Storage
-| Environment | Solution |
-|-------------|----------|
-| Local dev | MinIO (self-hosted S3-compatible) |
-| Production | AWS S3 |
-
----
-
-#### 3. How to Start the App
-
-> To be completed once app scaffold is built in Sprint 1.
-
----
-
-#### 4. System Architecture
-
-##### Three-Tier Access Model
-```
-Tier 1 — Pharaxis SuperAdmin (Pharaxis team only)
-│   Create/manage orgs, onboard/offboard customers
-│   System-wide audit and monitoring
-│   Manage Connect Hub integrations globally
-│   Platform health dashboard
-│
-Tier 2 — Org Admin (customer — e.g. Novartis admin)
-│   Manage users within their org
-│   Configure taxonomy (types, subtypes, classifications)
-│   Configure lifecycle rules
-│   Manage org-level Content Channels (integrations)
-│   View org audit trail
-│
-Tier 3 — Org Users (authors, reviewers, approvers, viewers)
-    Upload, review, approve, search content
-    Role-based access within their org
-```
-
-##### Multi-tenancy
-- Single database: `pharaxis_vault_dev`
-- Every table carries `org_id` — no exceptions
-- All queries scoped by `org_id` at service layer
-- No cross-org data leakage possible
-
-##### Content Channels (Integration Layer)
-- REST API for pull (downstream apps request content on demand)
-- Webhooks for push (notify when content changes, expires, or is published)
-- Per-org API key + OAuth 2.0 client credentials flow
-- Signed webhook payloads (HMAC-SHA256)
-- REST first — webhooks Phase 2
-
-##### File Storage Architecture
-- Binary files (PDFs, Word, images) → AWS S3 (prod) / MinIO (local)
-- Structured content (FAQs, templates, modules) → MySQL
-- Metadata for both → MySQL (`vault_content` + `vault_versions`)
-
----
-
-#### 5. Team Structure
-
-> Full org chart in `docs/TEAM_OPERATING_SOP.md`. Restructured 2026-04-14.
-
-| Full Name | Role | Vault Responsibility |
-|-----------|------|---------------------|
-| Rohith Karne | CEO & Co-Founder | All gates, final sign-off, product direction |
-| Varun Karne | CTO & Co-Founder | Architecture review, engineering lead, code review, Gate 2 sign-off |
-| Saad Rahman | CPO | Product strategy, feature prioritisation, requirement quality |
-| Bhavya Bobba | Engineering Manager + QA Manager | Schema owner, root cause, implementation, QA sign-off |
-| Bala Kaviti | Head of PMO, Business & Operations | Sprint facilitation, blockers, gate coordination |
-
----
-
-#### 6. Frontend Route Map
-
-> To be completed once Sprint 1 scaffold is built.
-
----
-
-#### 7. Backend API Map
-
-> To be completed once Sprint 1 backend routes are built.
-
----
-
-#### 8. Admin Console Sections
-
-##### Org Admin Console
-- User management (invite, deactivate, roles)
-- Taxonomy configuration (content types, subtypes, classifications)
-- Lifecycle rules per content type
-- Content Channels (org-level integrations)
-- Retention policies
-- Org audit trail viewer
-
-##### SuperAdmin Console
-- Org creation and management
-- Org admin assignment
-- System-wide usage dashboard
-- Connect Hub global management
-- Cross-org audit logs
-- Platform health monitoring
-
----
-
-#### 9. Database Tables Reference
-
-##### Core Tables (Sprint 1)
-| Table | Purpose |
-|-------|---------|
-| `orgs` | Customer organisations — org_id, name, slug, status, storage_quota |
-| `users` | Org-level users — id, org_id, name, email, role, is_active |
-| `superadmin_users` | Pharaxis SuperAdmin users — separate from org users |
-| `content_types` | Configurable content types per org |
-| `content_subtypes` | Sub-types per content type per org |
-| `classifications` | Classification values per org |
-| `vault_folders` | Folder hierarchy — id, org_id, parent_id, name, path |
-| `vault_content` | Master content record — id, org_id, doc_number, title, type_id, status, current_version_id |
-| `vault_versions` | Immutable version records — id, content_id, version_number, file_path, s3_key, checksum, created_by, created_at |
-| `vault_metadata` | Extended metadata — content_id, language, country, audience, confidentiality, regulated, effective_date, expiry_date |
-| `checkout_locks` | Check-in/check-out locks — content_id, locked_by, locked_at, org_id |
-| `doc_number_sequences` | Auto-numbering sequences per org per content type |
-| `lifecycle_states` | Lifecycle states per content type per org |
-| `lifecycle_transitions` | Allowed transitions between states |
-| `vault_dossiers` | Dossier (binder) records — id, org_id, title, status |
-| `dossier_items` | Documents within a dossier — dossier_id, content_id, position |
-| `content_slots` | Placeholders for expected documents — id, org_id, folder_id, title, expected_type, due_date |
-| `vault_audit_log` | Tamper-proof audit log — insert only. user_id, org_id, action, content_id, ip, timestamp, before_value, after_value |
-| `content_channels` | Downstream app integration mappings — id, org_id, app_name, api_key, webhook_url, status |
-
----
-
-#### 9b. Services and Scripts Reference
-
-> To be completed as services are built in Sprint 1.
-
-| Service | Purpose |
-|---------|---------|
-| `auditService.js` | Centralised audit logging — reusable by QMS and Safety apps |
-| `numberingService.js` | Auto-document number generation |
-| `storageService.js` | S3/MinIO abstraction layer |
-| `lifecycleService.js` | State machine for content lifecycle transitions |
-| `watermarkService.js` | PDF watermarking at render time |
-
----
-
-#### 10. Sprint History
-
-| Sprint | Status | Key Deliverables |
-|--------|--------|-----------------|
-| Sprint 1 | READY — not started | Foundation: auth, orgs, users, content upload, versioning, check-in/check-out, lifecycle, search, audit trail, SuperAdmin, inline viewer, auto-numbering, dossiers, content slots, expiry dashboard, watermarking, admin console, QA suite |
-
----
-
-#### 11. Current Sprint
-
-**Sprint 1 — NOT STARTED**
-Awaiting Gate 1 approval from Rohith.
-
-**Sprint 1 scope — 20 features (P1: 15 / P2: 5):**
-
-| # | Feature | Description | Priority | Effort | Owner |
-|---|---------|-------------|----------|--------|-------|
-| 1 | Project Setup & Auth | App scaffold, login/logout, JWT, org-scoped session | P1 | M | Varun Karne, Bhavya Bobba |
-| 2 | Org & User Management | User CRUD, 5 roles (Admin/Author/Reviewer/Approver/Viewer), role middleware | P1 | M | Bhavya Bobba |
-| 3 | Content Type & Taxonomy | Org-configurable content types, sub-types, classifications | P1 | M | Bhavya Bobba |
-| 4 | Folder Structure | Hierarchical folders, folder tree UI, org-scoped | P1 | S | Bhavya Bobba |
-| 5 | Document Upload & Storage | Upload PDF/Word/Excel/images, metadata capture, AWS S3 storage | P1 | L | Bhavya Bobba |
-| 6 | Auto-Numbering | Auto-generate document numbers e.g. PHX-SOP-2026-00142 per org per type | P1 | S | Bhavya Bobba |
-| 7 | Version Control | New version on every upload, all versions immutable and retained | P1 | M | Bhavya Bobba |
-| 8 | Check-in / Check-out | Server-side document locking, HTTP 423 on bypass, admin force-release | P1 | M | Bhavya Bobba |
-| 9 | Content Lifecycle | Draft → In Review → Approved → Published → Archived, role-enforced transitions | P1 | L | Bhavya Bobba |
-| 10 | Content Metadata | Language, country, audience, confidentiality, regulated flag, effective/expiry dates | P1 | M | Bhavya Bobba |
-| 11 | Inline Document Viewer | PDF.js in-browser viewer, no forced download, view logged to audit trail | P1 | M | Bhavya Bobba |
-| 12 | Full-text & Metadata Search | Search by title, doc number, type, classification, status, date range | P1 | M | Bhavya Bobba |
-| 13 | Audit Trail | Insert-only tamper-proof log, every action captured, reusable service | P1 | M | Bhavya Bobba |
-| 14 | Admin Console | Org Admin panel — users, taxonomy, lifecycle rules, retention, audit viewer | P1 | L | Bhavya Bobba |
-| 15 | SuperAdmin Module | Pharaxis-only portal, org creation/management, system-wide dashboard | P1 | M | Bhavya Bobba |
-| 16 | Watermarking | Auto-stamp by lifecycle status at render time, source file never modified | P1 | M | Bhavya Bobba |
-| 17 | Content Slots | Placeholders for expected documents, due date tracking, fill with upload | P2 | S | Bhavya Bobba |
-| 18 | Dossiers | Group documents into regulatory submission packages, table of contents view | P2 | M | Bhavya Bobba |
-| 19 | Expiry Intelligence Dashboard | 30/60/90 day expiry view, email alerts to document owners | P2 | M | Bhavya Bobba |
-| 20 | QA — Test Suite + Playwright e2e | Full regression, negative paths, e2e suite at sprint close | P1 | L | Bhavya Bobba |
-
----
-
-#### 12. Known Issues and Technical Debt
-
-> None yet — app not started.
-
----
-
-#### 13. Critical Technical Rules (Must Know)
-
-| Rule | Detail |
-|------|--------|
-| **org_id everywhere** | Every single table must have org_id. No exceptions. Enforced by Bhavya at schema review. |
-| **Immutable versions** | vault_versions rows are NEVER updated. Insert only. |
-| **Audit trail insert-only** | vault_audit_log rows are NEVER updated or deleted. |
-| **SuperAdmin JWT prefix** | `vault_superadmin_` — separate from org user JWTs |
-| **Org user JWT prefix** | `vault_` |
-| **Check-out lock is server-side** | Lock enforced at API level — not just UI. Direct API calls return 423 Locked. |
-| **Watermark at render time** | Source file NEVER modified. Watermark applied on-the-fly. |
-| **Claude Code writes all code** | ALL code writes, edits and test scripts via Claude Code's own Edit/Write tools. |
-| **No hard deletes** | Content uses status flags only — active/inactive/archived. |
-| **Schema owner** | Bhavya. No schema changes without Bhavya sign-off. |
-
----
-
-#### 14. Process Reference
-
-> Full gate flow, browser verification protocol, and team communication rules in:
-> - `memory/protocols.md` — gate approvals, dev standards, QA standards
-> - `memory/feedback.md` — development workflow, git push disabled, browser-first verification
-> - `TEAM_OPERATING_SOP.md` — role boundaries, escalation SOP
-
----
-
-#### 15. How to Update This File
-
-Only Bala updates this file, on Rohith's explicit instruction.
-
-Format: Rohith says → "Bala, update the Vault Memory SOP — [what changed]"
-Bala updates the relevant section and adds a version history entry.
-
----
-
-## 44. QMS — Application SOP (Mandatory)
-
-> Absorbed 2026-08-07 from `apps/qms/QMS_MEMORY_SOP.md`, now deleted, on Rohith's
-> instruction to hold every SOP in one file. Content is unchanged; only
-> heading levels were demoted to nest under this section. The update
-> protocol stated below still applies to this section.
-
-> **Purpose:** Single source of truth for the Pharaxis QMS application. Intended for any developer, QA engineer, or team member who needs to onboard or resume work without requiring verbal explanation.
-> **Scope:** QMS app only. Other apps documented separately in their own SOP files.
-> **Update Protocol:** This file is only updated when Rohith explicitly confirms. Rohith says "Bala, update the QMS Memory SOP — [what changed]" and Bala updates it. No one else modifies this file. Each update adds a version note below.
-
----
-
-#### Version History
-
-| Date | Updated By | What Changed |
-|------|-----------|--------------|
-| 2026-04-06 | Bala | Initial creation — skeleton. QMS not started. Placeholder for future development. |
-| 2026-04-28 | Bala | Sprint 1 complete. Status updated from skeleton to active. Tech stack confirmed. Sprint history, local start command, ports, and DB details updated. |
-| 2026-08-04 | Bala | **PostgreSQL → MySQL migration.** QMS was the last app on Postgres; it now runs on MySQL 8, matching MIMS, CP Portal, Vault and AI Agent. Tech stack, start commands, architecture, DB reference, known issues and technical rules all updated. Status is code-complete and engineer-verified — **not validated**. See §16. |
-| 2026-08-04 | Bala | **Gate 2 approved by Rohith.** Section 16 status updated: QA complete, Gate 2 approved; CSV validation still outstanding. Gate 2 record filed at `apps/qms/QMS_GATE2_APPROVAL_MYSQL_MIGRATION_2026-08-04.md`. |
-
----
-
-#### 1. What Is QMS
-
-**QMS — Quality Management System**
-A Pharaxis One application for managing SOPs, validation documents, quality events, and compliance workflows across regulated industries.
-
-**Status:** Sprint 1 complete — active in repo. Next sprint pending Rohith go-ahead.
-
-**Industries:** Life sciences, pharma, healthcare.
-
-**Relationship to other apps:** Will consume content from Pharaxis Vault via Content Channels API.
-
----
-
-#### 2. Full Tech Stack
-
-##### Backend
-| Component | Technology | Detail |
-|-----------|-----------|--------|
-| Runtime | Node.js | v20+ |
-| Framework | Express | Latest stable |
-| Database | **MySQL 8.0.45** | via `mysql2` pool — migrated from PostgreSQL 2026-08-04 |
-| Config | `MYSQL_HOST/PORT/USER/PASSWORD/DATABASE` | `DATABASE_URL` is **no longer required to boot** — it is retained only for the migration tooling and the parity gates |
-| Schema management | SQL migration scripts | `apps/qms/backend/src/db/mysql/migrations/*.sql` |
-| Migration command | `npm run db:migrate:mysql` | Run once on a fresh DB |
-| Password hashing | `bcrypt` (cost 10) | Was pgcrypto `crypt()` inside the DB — MySQL has none |
-| Legacy Postgres | `src/db/migrations/*.sql`, `src/db/pool.js` | Retained read-only. **Gate 2 (2026-08-04) permits decommissioning** — no runtime or test path depends on it. The source of record is now the hash-verified archive at `apps/qms/archive/`, not the live instance. |
-
-> **`.sql` files are gitignored** (`.gitignore:60`, added to block DB dumps). The
-> migration files are tracked only because they were force-added with `git add -f`.
-> A new migration file will NOT be committed unless you do the same.
-
-##### Frontend
-| Component | Technology | Detail |
-|-----------|-----------|--------|
-| Framework | Vue | Latest stable |
-| Build tool | Vite | Latest stable |
-| Styling | Tailwind CSS | Latest stable |
-
----
-
-#### 3. How to Start the App
-
-```bash
-# Backend
-cd apps/qms/backend
-npm run dev          # node --watch server.js
-# or: npm start      # node server.js
-
-# Frontend
-cd apps/qms/frontend
-npm run dev
-```
-
-> Corrected 2026-08-04: this previously said `node --env-file=.env server.js`.
-> `src/config/env.js` loads config with the `dotenv` package, so the flag is not
-> required and the npm scripts do not use it. Verified against the running server.
-
-**Local ports:**
-- Backend: `3145`
-- Frontend: `3146`
-
-**DB bootstrap (MySQL):**
-```bash
-cd apps/qms/backend
-npm run db:migrate:mysql   # build the schema
-npm run db:seed:dev        # fixture org + 6 users
-```
-
-> `npm run db:seed:dev` **rewrites the dev users' passwords.** If `QMS_SEED_*_PASSWORD`
-> is not set it generates a random one-time password and prints a warning — which
-> silently locks you out of accounts you were using. Always pass them explicitly:
-> `QMS_SEED_ADMIN_PASSWORD='...' npm run db:seed:dev`
-
-**One-off data copy from the legacy PostgreSQL database:**
-```bash
-DRY_RUN=1 npm run db:copy:mysql   # inspect first
-npm run db:copy:mysql             # copy + verify row counts per table
-```
-
----
-
-#### 4. System Architecture
-
-- MySQL 8 — single database `pharaxis_qms_dev` (via `MYSQL_DATABASE`)
-- `org_id` on every table — multi-tenant, no schema-per-org
-- SQL migration files manage schema (not auto-create at startup like the other MySQL apps)
-
-**Tenant isolation is enforced in the application, not the database.**
-PostgreSQL did it with Row Level Security — 92 tables, 101 policies — so the
-database silently appended `org_id` to every tenant query. MySQL has no
-equivalent. Every tenant-scoped query now carries its own `org_id` predicate.
-**There is no database-level backstop:** a query that forgets it leaks across
-orgs. `npm run test:tenant` fails the build if one does, and is the only thing
-standing between a missing predicate and a cross-tenant read.
-
-**Routes talk to MySQL through a pg-shaped adapter.** `src/db/mysql/pgCompat.js`
-rewrites `$1` placeholders to `?`, returns `{ rows, rowCount }`, and JSON-encodes
-objects bound to JSON columns. This is why ~440 call sites still read like
-node-postgres code. Do not "clean this up" — it is what keeps the query layer
-driver-agnostic.
-
-**Request lifecycle:** `withMysqlTransaction` (`src/db/mysql/transactionContext.js`)
-opens the transaction and rejects a tenant request with no org context. It
-replaced `withRlsContext`, which existed to set the Postgres RLS session vars.
-
----
-
-#### 5. Team Structure
-
-Full org chart in `docs/TEAM_OPERATING_SOP.md`. Restructured 2026-04-14 — 5-member team. See `memory/team.md` for full names and roles.
-
----
-
-#### 6. Frontend Route Map
-
-> Defined in Sprint 1. Full route map in `apps/qms/QMS_SPRINT1_COMPLETED_VIEW.md`.
-
----
-
-#### 7. Backend API Map
-
-> Defined in Sprint 1. Full API map in `apps/qms/QMS_SPRINT1_COMPLETED_VIEW.md`.
-
----
-
-#### 8. Admin Console Sections
-
-> Defined in Sprint 1. Reference `apps/qms/QMS_SPRINT1_COMPLETED_VIEW.md`.
-
----
-
-#### 9. Database Tables Reference
-
-| Detail | Value |
-|--------|-------|
-| Database name | `pharaxis_qms_dev` (via `MYSQL_DATABASE`); `pharaxis_qms_test` for tests |
-| Engine | MySQL 8.0.45 |
-| Multi-tenancy | `org_id` on every table — no exceptions, and now enforced only in the app |
-| Schema source | `apps/qms/backend/src/db/mysql/migrations/*.sql` (18 files) |
-| Scale | 92 tables, 923 columns, 268 foreign keys |
-| Primary keys | `CHAR(36) DEFAULT (UUID())` — QMS keeps UUIDs; the other apps use `INT AUTO_INCREMENT` |
-| Timestamps | `DATETIME(3)` UTC. The pool pins `timezone: 'Z'` and `SET time_zone = '+00:00'` per connection |
-| Legacy | `qms_dev` on PostgreSQL — decommissioning permitted by Gate 2. Archive: `apps/qms/archive/` (1,049 rows, SHA-256 verified) |
-
----
-
-#### 10. Sprint History
-
-| Sprint | Status | Key Deliverables |
-|--------|--------|-----------------|
-| Sprint 1 | ✅ COMPLETE (2026-04-09) | Auth/superadmin, document control, CAPA, deviations, audits, validation, platform shared services. 31/31 QA pass. Browser verified. Rohith signed off. |
-
----
-
-#### 11. Current Sprint
-
-**Status: PAUSED — awaiting Rohith go-ahead for Sprint 2.**
-
-Sprint 2 scope not yet defined. Build sequence priority: Pharaxis Vault first.
-
----
-
-#### 12. Known Issues and Technical Debt
-
-**From the MySQL migration (2026-08-04):**
-
-| Issue | Detail |
-|---|---|
-| **Audit chain: 259 events are link-verified only** | Events written before the cutover hashed the PostgreSQL text rendering of their timestamp and cannot be digest-recomputed. **Deliberately not re-anchored** — rewriting audit records is what 21 CFR Part 11.10(e) forbids. Disclosed by `/api/security/audit-chain/verify`. |
-| **Zero load or concurrency testing** | The audit writer serialises appenders with `SELECT … FOR UPDATE` on the org row. That is exactly the code whose behaviour changes under real contention, and it is what stops the hash chain forking. |
-| **12 of 14 modules are API-verified only** | Only CAPA and the superadmin console have been browser-verified on MySQL. |
-| **Two `close` endpoints never exercised** | `POST /capa/:id/close` and `POST /deviations/:id/close` — the creator-cannot-close rule blocks the only available credentials. |
-| **7 new tests not promoted to the regression corpus** | SOP §29 requires it. They live in `tests/`, not the Test Console. |
-
-**Pre-existing, found during the migration (not caused by it):**
-
-| Issue | Detail |
-|---|---|
-| `vs_periodic_reviews` has `UNIQUE (system_id)` | But the complete-review route inserts a second row for the same system, so a second completion always fails. Present in PostgreSQL too. |
-| Org users cannot log in via the browser | `verifyUserOtp` only stores the session `if (response.accessToken)`, but the backend returns cookie-mode. Only superadmin works. Tracked separately. |
-| 13 authorization defects | e.g. `POST /events/outbox/:id/publish` has no role check; five validation endpoints accept unverified parent IDs; a stubbed integration writes `status = 'Connected'` with a fabricated record count into a GxP audit trail. |
-
----
-
-#### 13. Critical Technical Rules (Must Know)
-
-| Rule | Detail |
-|------|--------|
-| **org_id everywhere** | Every table must have `org_id`. No exceptions. |
-| **Claude Code writes all code** | ALL code, edits and test scripts via Claude Code's own Edit/Write tools. |
-| **No hard deletes** | Status flags only. |
-| **Migrations only** | Schema changes via migration files — never manual ALTER TABLE on dev DB without a migration file. |
-| **Gates must pass before "done"** | `test:tenant`, `test:dialect`, `test:schema:mysql`, `pgcompat-placeholders`, `audit-chain-digest`, `rbac-smoke`, `test:static`. |
-
-##### MySQL traps — every one of these shipped a bug during the migration
-
-| Trap | What happens |
-|---|---|
-| **Inline `REFERENCES` creates NO foreign key** | InnoDB parses `col CHAR(36) REFERENCES t(id)` and silently discards it. Orphan rows are accepted. Use a table-level `FOREIGN KEY (col) REFERENCES t(id)` clause. This nearly cost all 268 FKs. |
-| **No `RETURNING`** | Generate the id in the app with `crypto.randomUUID()` and read back with a `SELECT`. For an `ON DUPLICATE KEY` upsert, read back on the **natural key** — on the conflict branch the surviving row keeps its own id, so a generated id matches nothing. |
-| **`DATETIME` rejects ISO-8601 strings** | `expiresAt.toISOString()` gives `ER_TRUNCATED_WRONG_VALUE` because of the trailing `Z`. Bind the `Date` itself and let mysql2 serialise it. This broke OTP login twice. |
-| **`FOR UPDATE` must come AFTER `LIMIT`** | Postgres tolerates either order; MySQL raises a syntax error. Broke every CAPA state transition. |
-| **A bare JS array binds as a comma-separated list** | It corrupts a JSON column or throws "Column count doesn't match". `JSON.stringify` it. |
-| **`ON DUPLICATE KEY` fires on ANY unique key** | Not just the one the old `ON CONFLICT` named. Check the table's unique keys before converting. |
-| **Never use `INSERT IGNORE`** | It downgrades FK, CHECK, NOT NULL and truncation errors to warnings, so a bad row vanishes silently. Use `ON DUPLICATE KEY UPDATE <col> = <col>`. Compliance determination, 2026-08-04. |
-| **No `ILIKE`, `FILTER`, `ARRAY_AGG`, `split_part`, `to_char`, `date_trunc`, `interval 'n unit'`, `::` casts, `jsonb_build_*`, `date - date`** | See `tests/mysql-dialect-audit.mjs` — it names the replacement for each. |
-| **MySQL DDL is not transactional** | A migration that fails halfway cannot be rolled back. `test:schema:mysql` builds from empty every run for this reason. |
-
----
-
-#### 14. Process Reference
-
-Full gate flow and protocols in:
-- `memory/protocols.md`
-- `memory/feedback.md`
-- `docs/TEAM_OPERATING_SOP.md`
-
----
-
-#### 15. How to Update This File
-
-Only Bala updates this file, on Rohith's explicit instruction.
-
-Format: Rohith says → "Bala, update the QMS Memory SOP — [what changed]"
-
----
-
-#### 16. PostgreSQL → MySQL Migration (2026-08-04)
-
-**Status: QA complete. Gate 2 APPROVED by Rohith 2026-08-04. NOT validated — NOT approved for a client environment.**
-
-Gate 2 record: `apps/qms/QMS_GATE2_APPROVAL_MYSQL_MIGRATION_2026-08-04.md`.
-Gate 2 permits product review and decommissioning the legacy PostgreSQL database.
-It does **not** permit deployment anywhere client-facing — that needs the CSV
-validation protocol, which has not been executed.
-
-Full CSV impact assessment: `apps/qms/QMS_CSV_IMPACT_POSTGRES_TO_MYSQL_2026-08-04.md`.
-
-##### Why
-QMS was the only Pharaxis app still on PostgreSQL. MIMS, CP Portal, Vault and the
-AI Agent all run `mysql2`. This was consolidation onto the house standard.
-
-##### Three controls moved from database-enforced to application-enforced
-This is what makes it validation-impacting rather than a refactor.
-
-| Control | Was | Now |
-|---|---|---|
-| Tenant isolation | RLS: 92 tables, 101 policies | `org_id` predicate in every query, gated by `test:tenant` |
-| Password hashing | pgcrypto `crypt()` in the DB | `bcrypt` in the app. **Existing `$2a$` hashes verify unchanged — no user reset a password.** |
-| Part 11 audit hash chain | plpgsql + `pg_advisory_xact_lock` | App-layer append + `SELECT … FOR UPDATE` on the org row. MySQL's `GET_LOCK()` is session-scoped, not transaction-scoped, so it is not a drop-in. |
-
-Preserved unchanged: the `qms_audit_events` immutability triggers (UPDATE and
-DELETE both raise), and all 268 foreign keys.
-
-##### Verified
-7 gates green · 1,008 rows migrated with UUIDs, millisecond timestamps, JSON,
-bcrypt hashes and the hash chain compared value-for-value · 20/20 endpoints 200 ·
-browser: OTP login, CAPA list, CAPA detail, create → Submitted → Investigation.
-
-##### Not verified — these block validation
-No independent QA execution · no Gate 2 · **no load or concurrency testing** ·
-12 modules API-verified only · two `close` endpoints unexercised.
-
-##### Rollback
-Commit `d70736a` is the last state with PostgreSQL fully working. The legacy
-Postgres database is retained read-only and must not be decommissioned until QA
-signs off — Vasu's determination, 2026-08-04.
-
----
-
-## 45. AI Agent — Application SOP (Mandatory)
-
-> Absorbed 2026-08-07 from `apps/ai-agent/AI_AGENT_MEMORY_SOP.md`, now deleted, on Rohith's
-> instruction to hold every SOP in one file. Content is unchanged; only
-> heading levels were demoted to nest under this section. The update
-> protocol stated below still applies to this section.
-> Owner: Rohith Karne (CEO)
-> Created: 2026-04-09
-> Status: Sprint 1 — In Planning
-
----
-
-#### App Identity
-
-- **App name:** Pharaxis AI-Agent
-- **Type:** Core Pharaxis Platform Service — standalone, not under any vertical
-- **Folder:** `apps/ai-agent/`
-- **Backend port:** 6000
-- **Frontend port:** 5175
-- **DB:** `pharaxis_ai_agent_dev`
-
----
-
-#### Strategic Context
-
-AI-Agent is a provider-agnostic AI service designed to power all Pharaxis suite applications.
-Clients bring their own API key (BYOK) — Pharaxis bears zero token cost.
-AI is an opt-in feature enabled at contract level.
-
-**Phase roadmap:**
-- Phase 1: Build — CP Portal integration, clean standalone architecture
-- Phase 2: Optimise — token reduction, caching, chunking, prompt templates
-- Phase 3: External licensing — sell AI-Agent service to external applications
-
----
-
-#### Architecture Principles (non-negotiable)
-
-1. **Fully standalone** — no import dependency on MIMS, CP Portal, Vault, QMS, or Safety internals
-2. **Provider-agnostic** — all apps call the same endpoint regardless of client's chosen provider
-3. **BYOK** — client enters their own OpenAI / Claude / Gemini API key in admin config
-4. **Phase 2 hooks designed in** — cache, chunker, templateStore stubs exist from Sprint 1
-5. **Key security** — AES-256 encrypted at rest, decrypted in memory only, never in logs or responses
-
----
-
-#### Sprint History
-
-##### Sprint 1 — CLOSED ✅ (2026-04-09)
-- Goal: Service scaffolding + DB schema + provider adapter layer + core query endpoint + CP Portal semantic document search + admin key config + superadmin portal
-- Scope: `apps/ai-agent/SPRINT1_SCOPE.md`
-- Effort: 17.5 days | Duration: 3 weeks
-- Gate 1: Approved
-- Gate 2: Approved
-- QA: 31/31 tests passed (21 automated + 10 remaining suites) — 0 failures
-- Bug caught in QA: CP Portal fetch bug fixed (Node 22 `fetch` → `http.request`)
-- Final Sign-off: Approved by Rohith Karne (CEO) — 2026-04-09
-- First integration: CP Portal — semantic document search
-
----
-
-#### Key Files
-
-| File | Purpose |
-|------|---------|
-| `apps/ai-agent/backend/server.js` | Entry point, port 6000 |
-| `apps/ai-agent/backend/database/db.js` | Schema — 3 tables |
-| `apps/ai-agent/backend/middleware/keyResolver.js` | AES-256 decrypt in memory |
-| `apps/ai-agent/backend/adapters/index.js` | Provider adapter factory |
-| `apps/ai-agent/backend/adapters/openaiAdapter.js` | OpenAI implementation |
-| `apps/ai-agent/backend/adapters/claudeAdapter.js` | Claude implementation |
-| `apps/ai-agent/backend/adapters/geminiAdapter.js` | Gemini implementation |
-| `apps/ai-agent/backend/core/promptBuilder.js` | Prompt construction per query_type |
-| `apps/ai-agent/backend/core/responseFormatter.js` | Standard response shape |
-| `apps/ai-agent/backend/routes/agent.js` | POST /api/v1/agent/query |
-| `apps/ai-agent/backend/routes/admin/apiKeys.js` | CRUD for org API key config |
-| `apps/ai-agent/backend/optimisation/` | Phase 2 stubs — cache, chunker, templateStore |
-| `apps/ai-agent/frontend/src/api/agentClient.js` | Shared client for suite apps |
-| `apps/ai-agent/frontend/src/components/AgentWidget/` | Embeddable query widget |
-| `apps/ai-agent/frontend/src/components/AdminPanel/` | Admin config UI |
-| `apps/ai-agent/SPRINT1_SCOPE.md` | Full Sprint 1 scope |
-| `apps/ai-agent/backend/middleware/internalAuth.js` | Internal service-to-service token auth |
-| `apps/ai-agent/backend/routes/internal/aiConfig.js` | Internal routes for CP Portal proxy calls |
-| `apps/ai-agent/backend/routes/admin/superadmin.js` | Platform-wide superadmin routes |
-| `apps/ai-agent/frontend/src/components/SuperadminLayout/index.jsx` | Dark sidebar layout |
-| `apps/ai-agent/frontend/src/pages/DashboardPage/index.jsx` | Superadmin dashboard |
-| `apps/ai-agent/frontend/src/pages/OrgsPage/index.jsx` | Org management + enable/disable |
-| `apps/ai-agent/frontend/src/pages/UsagePage/index.jsx` | Platform-wide usage log |
-| `apps/cp-portal/backend/routes/admin/aiProxy.js` | CP Portal → AI-Agent proxy |
-| `apps/cp-portal/frontend/src/admin/pages/AIConfigPage.jsx` | CP Portal AI config admin page |
-
----
-
-#### DB Tables
-
-| Table | Purpose |
-|-------|---------|
-| `ai_agent_org_config` | Encrypted API key + provider per org. One row per org. |
-| `ai_agent_usage_log` | Every query logged — tokens in/out, latency, status |
-| `ai_agent_prompt_templates` | Phase 2 — prompt template registry (schema defined Sprint 1) |
-
----
-
-#### Supported Providers (Sprint 1)
-
-| Provider | Adapter | Model |
-|----------|---------|-------|
-| OpenAI | `openaiAdapter.js` | gpt-4o |
-| Claude | `claudeAdapter.js` | claude-sonnet-4-6 |
-| Gemini | `geminiAdapter.js` | gemini-1.5-pro |
-
----
-
-#### Supported Query Types (Sprint 1)
-
-| Query Type | Used By |
-|-----------|---------|
-| `document_search` | CP Portal — Sprint 1 |
-| `faq_draft` | CP Portal — Sprint 2 |
-| `content_expiry_suggestion` | CP Portal — Sprint 2 |
-
----
-
-#### App Integration Map
-
-| App | Use Cases | Sprint |
-|-----|-----------|--------|
-| CP Portal | Semantic document search, FAQ auto-draft, content expiry suggestion | Sprint 1–2 |
-| MIMS | Case triage, case narrative draft, document suggestion | Future |
-| Vault | Semantic document search, regulatory reference lookup | Future |
-| QMS | Pattern detection, audit checklist, CAPA suggestion | Future |
-| Safety | Signal detection, ICSR narrative draft, literature scan | Future |
+## 43. Pharaxis Vault — RETIRED 2026-09-09
+## 44. QMS — RETIRED 2026-09-09
+## 45. AI Agent — RETIRED 2026-09-09
+
+> **Retired 2026-09-09 on Rohith's instruction.** The company now works two
+> products only — **CP Portal (§41)** and **MIMS (§42)**. The Pharaxis Vault,
+> QMS and AI Agent applications were deleted from the repository along with
+> their CI, deploy and release workflows, runbooks, website pages and local
+> databases.
+>
+> **Their numbers are kept as headings and not reused.** §41–§47 are cited
+> across this file, in `CLAUDE.md` and inside cloud routine prompts that cannot
+> be edited from the repository; renumbering would break those citations. This
+> follows the same pattern as §33–§36.
+>
+> **Document management is not gone — it moved outside.** MIMS integrates with
+> **Veeva Vault and other external content management systems** through its
+> per-organisation integration config. That integration is unaffected by this
+> retirement: it was always written against Veeva's API and never called the
+> in-house Vault app.
+>
+> The full text of these three sections remains in git history.
 
 ---
 
@@ -5019,7 +4306,7 @@ AI is an opt-in feature enabled at contract level.
 > Everything below is the 2026-08-08 text. Where the two differ, this block wins.
 
 > Established: 2026-08-08. Mandated by Rohith Karne.
-> Applies to: **CP Portal only.** MIMS, Vault, QMS and AI Agent are out of scope.
+> Applies to: **CP Portal only.** MIMS is out of scope.
 > Seventh cloud routine. Governance lives here; the operational prompt lives in `docs/CP_PM.md`.
 
 ### Principle

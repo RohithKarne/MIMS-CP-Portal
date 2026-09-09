@@ -4,8 +4,7 @@ This document defines the current database setup used by Pharaxis-One services.
 
 ## Database Engines
 
-- MySQL 8+ for MIMS, CP Portal, AI-Agent, and Vault
-- PostgreSQL 14+ for QMS
+- MySQL 8+ for MIMS and CP Portal
 - Pattern: one logical database per service
 
 ## Environment Contracts
@@ -20,7 +19,6 @@ MySQL services:
 
 PostgreSQL services:
 
-- `DATABASE_URL` (QMS uses this directly via `pg` pool)
 
 ## Service Database Mapping
 
@@ -28,14 +26,10 @@ PostgreSQL services:
 |---|---|---|---|
 | MIMS | MySQL | `pharaxis_mims_dev` | `apps/mims/backend/database/db.js` |
 | CP Portal | MySQL | `pharaxis_cp_portal_dev` | `apps/cp-portal/backend/database/db.js` |
-| AI-Agent | MySQL | `pharaxis_ai_agent_dev` | `apps/ai-agent/backend/database/db.js` |
-| Vault | MySQL | `pharaxis_vault_dev` | `apps/vault/backend/database/db.js` |
-| QMS | PostgreSQL | `qms_dev` (local default via `DATABASE_URL`) | `apps/qms/backend/src/db/pool.js` |
 
 ## Initialization Behavior
 
 - MySQL services initialize core tables at startup (`CREATE TABLE IF NOT EXISTS`).
-- QMS schema is managed through SQL migration scripts (`apps/qms/backend/src/db/migrations/*.sql`) and `npm run db:migrate`.
 - This allows local environments to bootstrap quickly with a clean database.
 - Schema ownership remains service-local.
 
@@ -43,7 +37,6 @@ PostgreSQL services:
 
 - MIMS bootstrap account: `superadmin` (initial default password exists in code)
 - CP Portal bootstrap account: `cpadmin` (initial default password exists in code)
-- QMS JWT-path local login: `admin@pharaxis.local` with org code `PHA_DEV` (see `apps/qms/README.md`)
 
 Important:
 - Treat defaults as local-dev only.
@@ -55,12 +48,8 @@ Important:
 2. Create service databases:
    - `pharaxis_mims_dev`
    - `pharaxis_cp_portal_dev`
-   - `pharaxis_ai_agent_dev`
-   - `pharaxis_vault_dev`
-   - `qms_dev` (or your configured PostgreSQL DB from `DATABASE_URL`)
 3. Copy `.env.example` to `.env` for each service.
-4. Set `MYSQL_*` values for MySQL services and `DATABASE_URL` for QMS.
-5. Run `npm run db:migrate` in `apps/qms/backend`.
+4. Set `MYSQL_*` values for the MySQL services.
 6. Start service backends once to initialize tables and seed local data.
 
 ## Security Rules

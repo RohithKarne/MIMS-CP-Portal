@@ -25,10 +25,7 @@ fi
 
 ENVIRONMENTS=(
   "mims-prod"
-  "qms-prod"
-  "vault-prod"
   "cp-portal-prod"
-  "ai-agent-prod"
 )
 
 create_or_update_environment() {

@@ -41,7 +41,7 @@ A question derived from our own repository is a question we can already see. The
 | Jira site | `rohithkarne.atlassian.net` (cloudId `0a7f7971-6443-474b-9c5e-9aee486f5fa2`) |
 | Jira project | **`PAUD`** (id 10237) — the only project it writes to. Created 2026-08-03 |
 | Assignee | Rohith (`712020:e0ca2980-ee7f-4136-883d-4c37712c9ec8`) |
-| Scope | `apps/mims` and `apps/cp-portal`. Vault and QMS excluded, as in §30, §32 and §34 |
+| Scope | `apps/mims` and `apps/cp-portal` — the two products |
 | Repo access | **Read-only.** No commits, no pull requests, no file changes |
 | Console | https://claude.ai/code/routines/trig_015RUwGVkCepLQmmp8g6GYUS |
 
