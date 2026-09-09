@@ -10,12 +10,10 @@ Pharaxis-One groups medical-affairs and platform products into a single engineer
 - **MIMS**: Core system for inquiry/case lifecycle, admin workflows, process telemetry, and operational reporting.
 - **CP Portal**: Client/public interaction layer for submissions, documents, and content delivery.
 
-### 2) Platform Services
-- **AI-Agent**: Provider-integrated AI service layer (OpenAI/Claude/Gemini adapters) with usage/config administration.
-- **Vault**: Regulated content management platform — Veeva Vault challenger for life sciences and healthcare.
-
-### 3) Quality Management
-- **QMS**: Sprint 1 baseline delivered (auth/superadmin, document control, CAPA, deviations, audits, validation, platform shared services).
+> **Two products only, from 2026-09-09.** Vault, QMS, AI Agent and the Test
+> Console were deleted on Rohith's instruction — see SOP §43–§45. Regulated
+> content management is now met by integrating with **Veeva Vault and other
+> external content management systems**, not by an in-house app.
 
 ## Current State Snapshot
 
@@ -23,15 +21,12 @@ Pharaxis-One groups medical-affairs and platform products into a single engineer
 |---|---|
 | MIMS | Active — Sprint 21 complete |
 | CP Portal | Stable — hotfix only |
-| AI-Agent | Sprint 1 complete |
-| Vault | Sprint 1 in progress — primary build focus |
-| QMS | Sprint 1 complete |
 
 ## Technical Baseline
 
 - Backend stack: Node.js + Express
-- Frontend stack: React + Vite (MIMS / CP Portal / AI-Agent / Vault), Vue + Vite + Tailwind (QMS)
-- Database: MySQL (MIMS, CP Portal, AI-Agent, Vault) + PostgreSQL (QMS)
+- Frontend stack: React + Vite (MIMS / CP Portal)
+- Database: MySQL (MIMS, CP Portal)
 - CI: GitHub Actions
 - Runtime availability: local-only; the previous AWS/EC2 host has been deleted
 - Dependency management: npm + Dependabot

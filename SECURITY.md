@@ -6,9 +6,6 @@ Security reports are accepted for all actively maintained services in this repos
 
 - `apps/mims`
 - `apps/cp-portal`
-- `apps/ai-agent`
-- `apps/vault`
-- `apps/qms`
 
 ## How To Report a Vulnerability
 

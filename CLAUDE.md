@@ -43,7 +43,7 @@ Read this before writing code in this repository.
 
 **VIII. Dependencies.** Every dependency is permanent code you do not control. Before adding one, ask whether the project or the standard library already does it — `crypto.randomUUID()` over a `uuid` package. When you do add one, say why, so the choice is visible rather than smuggled into the manifest.
 
-> **Pharaxis addition (Vasu, compliance):** in a regulated app — MIMS, CP Portal, Vault, QMS — a new dependency needs a named reason in the commit message. This is a supply-chain control, not a style note.
+> **Pharaxis addition (Vasu, compliance):** in a regulated app — MIMS, CP Portal — a new dependency needs a named reason in the commit message. This is a supply-chain control, not a style note.
 
 **IX. Communication.** **Plain English, one or two lines, references at the foot** (SOP §47 — this now governs every reply, document and thread, not only replies to Rohith). Say what you did and why, not just a block of code. Flag concerns even when you did exactly what was asked. Be precise about uncertainty: **"I am not sure this library supports streaming"** tells the reader what to verify; **"I think this should work"** does not. On any **recommendation**, add one line naming what would change it — **"Changes if: …"**. That turns an opinion into something someone can test instead of merely agree with. → SOP §28 *Communication Brevity Standard*, §39.5 *What Would Change My Mind*
 
@@ -73,7 +73,7 @@ Claude Code is the only development tool. Write and edit code directly with Edit
 | **Branches, pull requests, who owns each step** | **SOP §38** |
 | How the team talks in-channel, who says what | SOP §39 |
 | How the coding agent executes | SOP §40 |
-| CP Portal · MIMS · Vault · QMS · AI Agent | SOP §41 · §42 · §43 · §44 · §45 |
+| CP Portal · MIMS | SOP §41 · §42 |
 
 **Everything is in `docs/TEAM_OPERATING_SOP.md`.** There is exactly one SOP. The five per-app SOP files were absorbed and deleted on 2026-08-07 — do not recreate them.
 

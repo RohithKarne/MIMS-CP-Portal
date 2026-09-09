@@ -19,31 +19,6 @@ module.exports = {
       max_memory_restart: '200M',
       restart_delay: 3000,
       env: { NODE_ENV: 'production' }
-    },
-    {
-      name: 'vault',
-      script: 'server.js',
-      cwd: '/home/ubuntu/pharaxis/apps/vault/backend',
-      max_memory_restart: '200M',
-      restart_delay: 3000,
-      env: { NODE_ENV: 'production' }
-    },
-    {
-      name: 'ai-agent',
-      script: 'server.js',
-      cwd: '/home/ubuntu/pharaxis/apps/ai-agent/backend',
-      max_memory_restart: '200M',
-      restart_delay: 3000,
-      env: { NODE_ENV: 'production' }
-    },
-    {
-      name: 'qms',
-      script: 'server.js',
-      cwd: '/home/ubuntu/pharaxis/apps/qms/backend',
-      node_args: '--env-file=.env',
-      max_memory_restart: '200M',
-      restart_delay: 3000,
-      env: { NODE_ENV: 'production' }
     }
   ]
 }

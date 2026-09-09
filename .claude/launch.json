@@ -4,86 +4,42 @@
     {
       "name": "MIMS Backend",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "cwd": "apps/mims",
       "port": 3000
     },
     {
       "name": "MIMS Frontend",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "cwd": "apps/mims/frontend",
       "port": 5173
     },
     {
       "name": "CP Portal Backend",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "cwd": "apps/cp-portal/backend",
       "port": 4000
     },
     {
       "name": "CP Portal Frontend",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "cwd": "apps/cp-portal/frontend",
       "port": 5174
-    },
-    {
-      "name": "Vault Backend",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "cwd": "apps/vault",
-      "port": 5100
-    },
-    {
-      "name": "Vault Frontend",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "cwd": "apps/vault/frontend",
-      "port": 5176
-    },
-    {
-      "name": "QMS Backend",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "cwd": "apps/qms/backend",
-      "port": 3145
-    },
-    {
-      "name": "QMS Frontend",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "cwd": "apps/qms/frontend",
-      "port": 3146
-    },
-    {
-      "name": "AI Agent Backend",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "cwd": "apps/ai-agent",
-      "port": 6000
-    },
-    {
-      "name": "AI Agent Frontend",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "cwd": "apps/ai-agent/frontend",
-      "port": 5175
-    },
-    {
-      "name": "Vault Superadmin",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev:superadmin"],
-      "cwd": "apps/vault/frontend",
-      "port": 5177
-    },
-    {
-      "name": "Test Console",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["start"],
-      "cwd": "apps/test-console",
-      "port": 4300
     }
   ]
 }

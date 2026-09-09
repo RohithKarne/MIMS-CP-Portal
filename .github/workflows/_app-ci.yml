@@ -225,31 +225,20 @@ jobs:
           done
           echo "MySQL never became ready"; exit 1
 
-      # QMS migration 0001 installs two triggers that make qms_audit_events
-      # append-only — the audit-trail immutability control. MySQL refuses to
-      # create a trigger when binary logging is on and the connecting user lacks
-      # SUPER, which devuser does:
+      # A migration that creates a trigger is refused when binary logging is on
+      # and the connecting user lacks SUPER, which devuser does:
       #
       #   ER_BINLOG_CREATE_ROUTINE_NEED_SUPER
       #
-      # Set here as root so the control is actually installed and exercised,
-      # rather than skipping the migration and testing a schema without it.
-      #
-      # NOTE FOR DEPLOYMENT, not CI: this means QMS cannot install its audit
-      # triggers on a managed MySQL that withholds SUPER (RDS, Cloud SQL, Azure
-      # Database) unless log_bin_trust_function_creators is set at the server
-      # level. If it is not, migration 0001 fails — and forcing past it would
-      # leave the audit ledger mutable. Raised with Vasu 2026-08-06.
-      #
-      # The second grant is for QMS's schema check, which builds a throwaway
-      # database (pharaxis_qms_schemacheck) to validate the migrated schema
-      # against. The service container gives devuser rights to the test database
-      # only, so creating that scratch schema is refused:
+      # A migration that builds a scratch database to validate a schema against
+      # is refused for the same reason, because the service container grants
+      # devuser rights to the test database only:
       #
       #   ER_DBACCESS_DENIED_ERROR  Access denied for user 'devuser'@'%'
       #
-      # Widening devuser inside a throwaway CI container is safe — the container
-      # is destroyed with the job and holds nothing but fixtures.
+      # Both are set here as root so migrations run in full rather than being
+      # skipped. Widening devuser inside a throwaway CI container is safe — the
+      # container is destroyed with the job and holds nothing but fixtures.
       - name: Prepare MySQL for migrations and schema checks
         run: |
           mysql -h 127.0.0.1 -P 3306 -uroot -pdevpass -e "
