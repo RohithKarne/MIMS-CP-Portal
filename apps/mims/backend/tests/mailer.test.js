@@ -7,7 +7,12 @@
 // declares what kind of mail it is. Alerts are blocked; operational mail sends.
 
 const mockCreateTransport = jest.fn(() => ({ sendMail: jest.fn(), verify: jest.fn() }));
-jest.mock('nodemailer', () => ({ createTransport: (...args) => mockCreateTransport(...args) }), { virtual: true });
+// Not a virtual mock: nodemailer is a real dependency of this app. Declaring it
+// virtual let Jest register the mock under the bare specifier while utils/mailer
+// resolved the real module, so the real transport was built and these
+// assertions saw no calls. It passed on a warm node_modules and failed on CI's
+// fresh install — the divergence that made it look environment-specific.
+jest.mock('nodemailer', () => ({ createTransport: (...args) => mockCreateTransport(...args) }));
 
 const mailer = require('../utils/mailer');
 const { execSync } = require('child_process');
