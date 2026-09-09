@@ -42,10 +42,10 @@ async function hasSiteAccess(req, siteId) {
 // POST /api/admin/site-config/test-smtp — Test SMTP connection
 router.post('/site-config/test-smtp', authenticate, requireRole('admin', 'platform_admin'), async (req, res) => {
   try {
-    const nodemailer = require('nodemailer');
+    const mailer = require('../../utils/mailer');
     const { host, port, secure, user, pass } = req.body;
     if (!host || !port) return res.status(400).json({ error: 'host and port required' });
-    const transporter = nodemailer.createTransport({
+    const transporter = mailer.createTransport('operational', {
       host, port: parseInt(port), secure: !!secure,
       auth: user ? { user, pass: pass || '' } : undefined,
       connectionTimeout: 5000, greetingTimeout: 5000

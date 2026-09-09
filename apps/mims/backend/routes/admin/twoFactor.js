@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const nodemailer = require('nodemailer');
+const mailer = require('../../utils/mailer');
 const pool = require('../../database/db');
 const { authenticate, requireRole, requireOrg } = require('../../middleware/auth');
 const { emitPlatformAdminAlert } = require('../../services/alertService');
@@ -229,7 +229,7 @@ router.post('/two-factor/config/test-email', ...adminTwoFactorAuth, async (req, 
       return res.status(400).json({ error: 'SMTP host, port, username, password, and from email are required.' });
     }
 
-    const transporter = nodemailer.createTransport({
+    const transporter = mailer.createTransport('operational', {
       host,
       port,
       secure: encryption === 'SSL/TLS',

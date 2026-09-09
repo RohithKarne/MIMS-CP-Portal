@@ -759,11 +759,11 @@ router.post('/email-accounts/:id/test-smtp', authenticate, requireRole('admin', 
     if (!account.smtp_host || !account.smtp_port || !account.smtp_username || !account.smtp_password)
       return res.status(400).json({ error: 'SMTP configuration incomplete.' });
 
-    const nodemailer = require('nodemailer');
+    const mailer = require('../../utils/mailer');
     const secure = account.smtp_encryption === 'SSL/TLS';
     const requireTLS = account.smtp_encryption === 'STARTTLS';
 
-    const transporter = nodemailer.createTransport({
+    const transporter = mailer.createTransport('operational', {
       host: account.smtp_host,
       port: account.smtp_port,
       secure,
@@ -814,11 +814,11 @@ router.post('/email-accounts/:id/send-test', authenticate, requireRole('admin', 
     if (!account.smtp_host || !account.smtp_port || !account.smtp_username || !account.smtp_password)
       return res.status(400).json({ error: 'SMTP configuration incomplete.' });
 
-    const nodemailer = require('nodemailer');
+    const mailer = require('../../utils/mailer');
     const secure = account.smtp_encryption === 'SSL/TLS';
     const requireTLS = account.smtp_encryption === 'STARTTLS';
 
-    const transporter = nodemailer.createTransport({
+    const transporter = mailer.createTransport('operational', {
       host: account.smtp_host,
       port: account.smtp_port,
       secure,

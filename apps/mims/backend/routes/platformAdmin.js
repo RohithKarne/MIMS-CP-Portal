@@ -8,7 +8,7 @@ const express = require('express');
 const router = express.Router();
 const crypto = require('crypto');
 const bcrypt = require('bcrypt');
-const nodemailer = require('nodemailer');
+const mailer = require('../utils/mailer');
 const pool = require('../database/db');
 const { authenticate, requireRole } = require('../middleware/auth');
 const { validate, schemas } = require('../middleware/validate');
@@ -476,7 +476,7 @@ router.post('/config/test-email', authenticate, requireRole('platform_admin'), a
       return res.status(400).json({ error: 'SMTP host, port, username, password, and from email are required.' });
     }
 
-    const transporter = nodemailer.createTransport({
+    const transporter = mailer.createTransport('operational', {
       host,
       port,
       secure: encryption === 'SSL/TLS',

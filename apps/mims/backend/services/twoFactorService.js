@@ -1,7 +1,7 @@
 'use strict';
 
 const crypto = require('crypto');
-const nodemailer = require('nodemailer');
+const mailer = require('../utils/mailer');
 const pool = require('../database/db');
 
 const OTP_EXPIRY_MINUTES = 5;
@@ -124,7 +124,7 @@ async function sendEmailOtp({ toEmail, userName, code }) {
     throw new Error('Platform admin SMTP configuration is incomplete.');
   }
 
-  const transporter = nodemailer.createTransport({
+  const transporter = mailer.createTransport('operational', {
     host,
     port,
     secure: encryption === 'SSL/TLS',
