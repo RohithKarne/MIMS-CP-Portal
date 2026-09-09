@@ -105,12 +105,22 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # ripgrep is not present on the ubuntu-24.04 runner image, so this step
+      # installs it. It deliberately does NOT run `apt-get update` first: the
+      # image ships recent package lists, and `update` also refreshes
+      # third-party indexes. On 2026-09-09 one of those returned a hash
+      # mismatch, `update` exited non-zero, and every Quality Gate and Security
+      # Scan job in the repository failed on infrastructure rather than on code.
+      # Update is kept only as a fallback for when the package genuinely cannot
+      # be found. `rg --version` at the end so a missing scanner fails here,
+      # loudly, instead of in a scan that cannot run.
       - name: Install scanner dependencies
         run: |
           if ! command -v rg >/dev/null 2>&1; then
-            sudo apt-get update
-            sudo apt-get install -y ripgrep
+            sudo apt-get install -y ripgrep \
+              || { sudo apt-get update && sudo apt-get install -y ripgrep; }
           fi
+          rg --version
 
       - name: Run quality gate
         run: ${{ inputs.quality_command }}
@@ -135,12 +145,22 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # ripgrep is not present on the ubuntu-24.04 runner image, so this step
+      # installs it. It deliberately does NOT run `apt-get update` first: the
+      # image ships recent package lists, and `update` also refreshes
+      # third-party indexes. On 2026-09-09 one of those returned a hash
+      # mismatch, `update` exited non-zero, and every Quality Gate and Security
+      # Scan job in the repository failed on infrastructure rather than on code.
+      # Update is kept only as a fallback for when the package genuinely cannot
+      # be found. `rg --version` at the end so a missing scanner fails here,
+      # loudly, instead of in a scan that cannot run.
       - name: Install scanner dependencies
         run: |
           if ! command -v rg >/dev/null 2>&1; then
-            sudo apt-get update
-            sudo apt-get install -y ripgrep
+            sudo apt-get install -y ripgrep \
+              || { sudo apt-get update && sudo apt-get install -y ripgrep; }
           fi
+          rg --version
 
       - name: Run security scan
         run: ${{ inputs.security_command }}
