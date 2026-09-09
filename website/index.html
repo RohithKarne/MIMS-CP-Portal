@@ -217,7 +217,7 @@
   /* ── ABOUT ── */
   #about { background: var(--navy-mid); }
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-  .about-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 60px; }
+  .about-stat-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 60px; }
   .about-stat-num { font-family: var(--font-display); font-size: 42px; font-weight: 800; color: var(--sky); letter-spacing: -1px; line-height: 1; }
   .about-stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
   .about-right p { font-size: 16px; line-height: 1.8; color: var(--text); margin-bottom: 20px; }
@@ -244,15 +244,6 @@
   .service-desc { font-size: 15px; color: var(--muted); line-height: 1.7; }
 
   /* ── CASE STUDIES ── */
-  .cases-list { display: flex; flex-direction: column; gap: 1px; background: var(--navy-border); border-radius: 16px; overflow: hidden; }
-  .case-item { background: var(--navy-card); display: grid; grid-template-columns: 1fr auto; align-items: center; padding: 36px 48px; gap: 40px; transition: background 0.2s; cursor: default; }
-  .case-item:hover { background: #152035; }
-  .case-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sky); margin-bottom: 8px; }
-  .case-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
-  .case-desc { font-size: 14px; color: var(--muted); }
-  .case-result { text-align: right; min-width: 140px; }
-  .case-result-num { font-family: var(--font-display); font-size: 36px; font-weight: 800; color: var(--sky); letter-spacing: -1px; }
-  .case-result-label { font-size: 12px; color: var(--muted); }
 
   /* ── PRICING ── */
   #pricing { background: var(--navy-mid); }
@@ -335,7 +326,6 @@
       </div>
     </li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#portfolio">Case Studies</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#team">Team</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -379,8 +369,7 @@
       <div class="about-stat-row">
         <div class="about-stat"><div class="about-stat-num">2</div><div class="about-stat-label">Integrated Applications</div></div>
         <div class="about-stat"><div class="about-stat-num">1</div><div class="about-stat-label">Unified Platform</div></div>
-        <div class="about-stat"><div class="about-stat-num">10+</div><div class="about-stat-label">Global Clients</div></div>
-      </div>
+              </div>
     </div>
     <div class="about-right">
       <p>Pharaxis was founded on the belief that medical affairs teams deserve purpose-built software — not repurposed CRM tools or fragmented point solutions.</p>
@@ -431,34 +420,8 @@
 
 <div class="divider"></div>
 
-<!-- CASE STUDIES -->
-<section id="portfolio" class="section" data-screen-label="05 Case Studies">
-  <div class="section-label">Case Studies</div>
-  <h2 class="section-title" style="margin-bottom:60px;">Results that speak for themselves.</h2>
-  <div class="cases-list">
-    <div class="case-item">
-      <div><div class="case-tag">Global Pharma · MIMS + AI-Agent</div><div class="case-title">Novartis — Streamlining global medical query operations across 20+ markets</div><div class="case-desc">Deployed MIMS and AI-Agent to centralise medical inquiry handling and automate case triage, replacing a fragmented legacy setup across multiple regions.</div></div>
-      <div class="case-result"><div class="case-result-num">60%</div><div class="case-result-label">faster response time</div></div>
-    </div>
-    <div class="case-item">
-      <div><div class="case-tag">Medical Affairs Services · CP Portal + Safety</div><div class="case-title">Eversana — Audit-ready HCP engagement and pharmacovigilance for a rare disease programme</div><div class="case-desc">Deployed CP Portal and Safety together with a full validation package, enabling compliant HCP interaction and adverse event processing from day one.</div></div>
-      <div class="case-result"><div class="case-result-num">14 wk</div><div class="case-result-label">to audit-ready</div></div>
-    </div>
-    <div class="case-item">
-      <div><div class="case-tag">Pharmacovigilance · Safety + QMS</div><div class="case-title">PrimeVigilance — Meeting EMA submission timelines with Safety and QMS</div><div class="case-desc">Replaced legacy safety case processing with Pharaxis Safety and QMS to achieve full EMA submission compliance and quality management in one integrated workflow.</div></div>
-      <div class="case-result"><div class="case-result-num">100%</div><div class="case-result-label">on-time submissions</div></div>
-    </div>
-    <div class="case-item">
-      <div><div class="case-tag">Global Pharma · Vault + Publications</div><div class="case-title">Sun Pharma — Unifying content and publication management across 8 therapeutic areas</div><div class="case-desc">Deployed Vault and Publications to create a single source of truth for medical content and publication planning, eliminating version conflicts and review delays.</div></div>
-      <div class="case-result"><div class="case-result-num">40%</div><div class="case-result-label">fewer review cycles</div></div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
 <!-- PRICING -->
-<section id="pricing" class="section" data-screen-label="06 Pricing">
+<section id="pricing" class="section" data-screen-label="05 Pricing">
   <div class="section-label">Pricing</div>
   <h2 class="section-title" style="margin-bottom:12px;">Transparent, enterprise-grade pricing.</h2>
   <p class="section-sub">All plans include onboarding, validation support, and a dedicated success manager. Custom configurations available.</p>
@@ -487,7 +450,7 @@
 <div class="divider"></div>
 
 <!-- TEAM -->
-<section id="team" class="section" data-screen-label="07 Team">
+<section id="team" class="section" data-screen-label="06 Team">
   <div class="section-label">Team</div>
   <h2 class="section-title" style="margin-bottom:60px;">The people behind Pharaxis.</h2>
   <div class="team-grid">
@@ -533,7 +496,7 @@
 <div class="divider"></div>
 
 <!-- CONTACT -->
-<section id="contact" class="section" data-screen-label="08 Contact">
+<section id="contact" class="section" data-screen-label="07 Contact">
   <div class="contact-grid">
     <div>
       <div class="section-label">Contact</div>
@@ -609,7 +572,7 @@
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.product-card, .service-item, .team-card, .case-item, .pricing-card').forEach(el => {
+  document.querySelectorAll('.product-card, .service-item, .team-card, .pricing-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
