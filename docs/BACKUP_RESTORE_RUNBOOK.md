@@ -14,11 +14,8 @@ Backup existing data is not enough. Team must prove restore works.
 
 Active data stores in this repo:
 
-- `vault` -> MySQL
 - `cp-portal` -> MySQL
 - `mims` -> MySQL
-- `ai-agent` -> MySQL
-- `qms` -> PostgreSQL
 
 ## Backup Standard
 
@@ -63,11 +60,8 @@ psql "$RESTORE_DATABASE_URL" < backup.sql
 
 Minimum checks:
 
-- `vault` -> `/api/health`, org login, notifications feed
-- `qms` -> `/api/health`, `/api/auth/orgs`, protected route with auth
 - `cp-portal` -> `/api/health`, admin login page, admin auth route
 - `mims` -> `/api/health`, admin login, inbox endpoint
-- `ai-agent` -> `/api/v1/agent/health`, admin barrier route
 
 ## Rollback Plan
 
@@ -95,7 +89,6 @@ Record each drill:
 
 - `docs/runbooks/MIMS_PRODUCTION_RUNBOOK.md`
 - `docs/runbooks/QMS_PRODUCTION_RUNBOOK.md`
-- `docs/runbooks/VAULT_PRODUCTION_RUNBOOK.md`
 - `docs/runbooks/CP_PORTAL_PRODUCTION_RUNBOOK.md`
 - `docs/runbooks/AI_AGENT_PRODUCTION_RUNBOOK.md`
 

@@ -23,10 +23,7 @@ Every product must have:
 | Product | Health endpoint | Minimum smoke after deploy | Backup type | High-priority alerts |
 | --- | --- | --- | --- | --- |
 | `mims` | `/mims/api/health` | frontend shell, health, protected barrier, admin/login critical path | MySQL dump + restore proof | PM2 crash, DB unreachable, repeated 5xx, worker failures |
-| `qms` | `/qms/api/health` | health, auth orgs, protected route, frontend login | PostgreSQL dump + restore proof | PM2 crash, DB unreachable, auth failure spike, RBAC smoke failure |
-| `vault` | `/vault/api/health` | frontend shell, health, protected barrier | MySQL dump + restore proof | PM2 crash, DB unreachable, storage or SMTP failures |
 | `cp-portal` | `/cp-portal/api/health` | frontend shell, health, protected barrier, admin/public route check | MySQL dump + restore proof | PM2 crash, DB unreachable, portal auth/admin failures |
-| `ai-agent` | `/ai-agent/api/v1/agent/health` | frontend shell, health, protected barrier, provider/admin path check | MySQL dump + restore proof | PM2 crash, DB unreachable, provider key/config failures, 429/5xx spikes |
 
 ## Backup Standard
 
@@ -54,10 +51,7 @@ For each product:
 | Product | Primary alert owner |
 | --- | --- |
 | `mims` | MIMS owner |
-| `qms` | QMS owner |
-| `vault` | Vault owner |
 | `cp-portal` | CP Portal owner |
-| `ai-agent` | AI-Agent owner |
 
 ## Current Gap
 

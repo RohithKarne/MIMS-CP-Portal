@@ -8,7 +8,7 @@ const router = express.Router();
 
 const INTEGRATION_NAMES = {
   crm: 'CRM Sync',
-  vault: 'Pharaxis Vault',
+  vault: 'Veeva Vault',
   emir: 'EMIR Integration',
   email: 'Inbound Email Sync',
   mir: 'MIR Integration'

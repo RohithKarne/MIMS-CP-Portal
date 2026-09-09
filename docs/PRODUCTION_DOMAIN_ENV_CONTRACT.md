@@ -20,11 +20,8 @@ Frontend production envs should resolve like this:
 
 | App | Frontend base | API base |
 | --- | --- | --- |
-| Vault | `/vault/` | `/vault/api` |
-| QMS | `/qms/` | `/qms/api` |
 | CP Portal | `/cp-portal/` | `/cp-portal/api` |
 | MIMS | `/mims/` | `/mims/api` |
-| AI Agent | `/ai-agent/` | `/ai-agent` then app appends `/api/v1/agent/*` |
 
 ## Future Nginx Contract
 
@@ -35,11 +32,8 @@ When remote hosting is restored, Nginx or the selected edge proxy must serve:
 
 Examples:
 
-- `/vault/api/health` -> `http://127.0.0.1:5100/api/health`
-- `/qms/api/health` -> `http://127.0.0.1:3145/api/health`
 - `/cp-portal/api/health` -> `http://127.0.0.1:4000/api/health`
 - `/mims/api/health` -> `http://127.0.0.1:3000/api/health`
-- `/ai-agent/api/v1/agent/health` -> `http://127.0.0.1:6000/api/v1/agent/health`
 
 Repo delivery artifacts:
 
@@ -50,19 +44,13 @@ Repo delivery artifacts:
 
 Preferred next-state:
 
-- `vault.<prod-domain>`
-- `qms.<prod-domain>`
 - `cp-portal.<prod-domain>`
 - `mims.<prod-domain>`
-- `ai-agent.<prod-domain>`
 
 Fallback acceptable for one-host rollout:
 
-- `https://<prod-domain>/vault/`
-- `https://<prod-domain>/qms/`
 - `https://<prod-domain>/cp-portal/`
 - `https://<prod-domain>/mims/`
-- `https://<prod-domain>/ai-agent/`
 
 ## Secrets and Env Injection
 
